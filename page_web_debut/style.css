@@ -1,10 +1,11 @@
 body {
     font-family: "Script bold";
+    background-color: #ffdff3;
 }
 .menu {
     display: flex;                /* Transformation en flexbox */
     padding:0;                    /* Suppression des marges internes */
-    background-color: #ccc;       /* Ajout de la couleur d'arrière-plan */
+    background-color: #ba65cf;       /* Ajout de la couleur d'arrière-plan */
     justify-content: space-around;/* Alignements des liens dans le menu */
 }
 .menu li {
@@ -18,7 +19,7 @@ body {
     margin: 0.5rem;               /* Marges externes */
     padding: 0.4rem 0;            /* Marges internes */
     text-align: center;           /* Centrage du texte */   
-    background-color: #1ABC9C;    /* Arrière-plan */
+    background-color: #714cbf;    /* Arrière-plan */
     color: #fff;                  /* Couleur du texte */
     text-decoration: none;        /* Suppression du soulignement */
     border: 1px solid #fff;       /* Ajout d'une bordure */
