@@ -1,6 +1,6 @@
 -- Table for Anime --
 CREATE TABLE Anime (
-    mal_id INT PRIMARY KEY,
+    id_anime INT PRIMARY KEY,
     title VARCHAR(255),
     type VARCHAR(255),
     score FLOAT,
@@ -27,7 +27,7 @@ CREATE TABLE Anime (
 
 -- Table for Manga --
 CREATE TABLE Manga (
-    mal_id INT PRIMARY KEY,
+    id_manga INT PRIMARY KEY,
     title VARCHAR(255),
     type VARCHAR(255),
     score FLOAT,
@@ -51,7 +51,7 @@ CREATE TABLE Manga (
 
 -- Table for Personnages --
 CREATE TABLE Personnage (
-    mal_id INT PRIMARY KEY,
+    id_pers INT PRIMARY KEY,
     name VARCHAR(255),
     nicknames VARCHAR(255),
     favorites INT,
@@ -61,7 +61,7 @@ CREATE TABLE Personnage (
 
 -- Table for Voice Actor --
 CREATE TABLE VoiceActor (
-    mal_id INT PRIMARY KEY,
+    id_voiceactor INT PRIMARY KEY,
     name VARCHAR(255),
     birthday DATE,
     favorites INT,
@@ -104,4 +104,54 @@ CREATE TABLE Profil (
     genrefav VARCHAR(255)
 );
 
--- Table for 
+-- Table for Genre --
+CREATE TABLE Genre(
+    idgenre INT PRIMARY KEY,
+    genre VARCHAR(255)
+);
+
+-- Table for Theme --
+CREATE TABLE Theme(
+    idtheme INT PRIMARY KEY,
+    theme VARCHAR(255)
+);
+
+-- Table for AnimeFav --
+CREATE TABLE AnimesFav(
+    idprofil INT,
+    idanime1 INT,
+    idanime2 INT,
+    idanime3 INT,
+    idanime4 INT,
+    idanime5 INT,
+);
+
+-- Table for MangaFav --
+CREATE TABLE MangasFav(
+    idprofil INT,
+    idmanga1 INT,
+    idmanga2 INT,
+    idmanga3 INT,
+    idmanga4 INT,
+    idmanga5 INT,
+);
+
+-- Table for PersonnageFav --
+CREATE TABLE PersonnagesFav(
+    idprofil INT,
+    idpers1 INT,
+    idpers2 INT,
+    idpers3 INT,
+    idpers4 INT,
+    idpers5 INT,
+);
+
+-- Table for VoiceActorFav --
+CREATE TABLE VoiceActorsFav(
+    idprofil INT,
+    idacteur1 INT,
+    idacteur2 INT,
+    idacteur3 INT,
+    idacteur4 INT,
+    idacteur5 INT,
+);
