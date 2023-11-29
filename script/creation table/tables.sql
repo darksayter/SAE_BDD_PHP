@@ -82,8 +82,8 @@ CREATE TABLE Affrontement (
     id2 INT,
     vote1 INT,
     vote2 INT,
-    datedebut DATETIME,
-    datefin DATETIME,
+    datedebut DATE,
+    datefin DATE,
     gagnant INT,
     perdant INT
 );
@@ -93,7 +93,7 @@ CREATE TABLE Profil (
     idprofil INT PRIMARY KEY,
     nom VARCHAR(255),
     prenom VARCHAR(255),
-    age INT,
+    datenai DATE,
     genre VARCHAR(255),
     prefetempsvisio VARCHAR(255),
     prefeepoque VARCHAR(255),
@@ -103,3 +103,5 @@ CREATE TABLE Profil (
     acteurfav VARCHAR(255),
     genrefav VARCHAR(255)
 );
+
+-- Table for 
