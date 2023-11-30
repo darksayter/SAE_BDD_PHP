@@ -127,3 +127,31 @@ RETURN (
     ORDER BY volumes DESC
     LIMIT 10
 );
+
+-- Fonction pour obtenir les anime avec le moins d'épisodes
+CREATE FUNCTION AnimeAvecLePlusEpisodes()
+RETURNS TABLE (
+    mal_id INT,
+    title VARCHAR(255),
+    episodes INT
+) AS
+RETURN (
+    SELECT mal_id, title, episodes
+    FROM Anime
+    ORDER BY episodes ASC
+    LIMIT 10
+);
+
+-- Fonction pour obtenir les mangas avec le moins de volumes
+CREATE FUNCTION MangaAvecLePlusTomes()
+RETURNS TABLE (
+    mal_id INT,
+    title VARCHAR(255),
+    volumes INT
+) AS
+RETURN (
+    SELECT mal_id, title, volumes
+    FROM Manga
+    ORDER BY volumes ASC
+    LIMIT 10
+);
