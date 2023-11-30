@@ -70,10 +70,11 @@ CREATE TABLE VoiceActor (
 );
 
 -- Table for Tournoi --
-CREATE TABLE Tournoi (
+CREATE TABLE classement (
     etapes INT,
     classement INT,
-    mal_id INT PRIMARY KEY
+    mal_id INT PRIMARY KEY,
+    etat BOOLEAN
 );
 
 -- Table for Affrontement --
@@ -85,7 +86,8 @@ CREATE TABLE Affrontement (
     datedebut DATE,
     datefin DATE,
     gagnant INT,
-    perdant INT
+    perdant INT,
+    etapes INT
 );
 
 -- Table for Profil --
