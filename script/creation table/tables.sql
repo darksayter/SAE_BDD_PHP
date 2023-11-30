@@ -79,6 +79,7 @@ CREATE TABLE classement (
 
 -- Table for Affrontement --
 CREATE TABLE AffrontementAnime (
+    id_affrontementanime INT PRIMARY KEY,
     id_anime1 INT,
     id_anime2 INT,
     vote_anime1 INT,
@@ -92,6 +93,7 @@ CREATE TABLE AffrontementAnime (
 
 -- Table for Affrontement --
 CREATE TABLE AffrontementManga (
+    id_affrontementmanga INT PRIMARY KEY,
     id_manga1 INT,
     id_manga2 INT,
     vote_manga1 INT,
@@ -105,6 +107,7 @@ CREATE TABLE AffrontementManga (
 
 -- Table for Affrontement --
 CREATE TABLE AffrontementVoiceActor (
+    id_affrontementvoiceactor INT PRIMARY KEY,
     id_voiceactor1 INT,
     id_voiceactor2 INT,
     vote_voiceactor1 INT,
@@ -118,6 +121,7 @@ CREATE TABLE AffrontementVoiceActor (
 
 -- Table for Affrontement --
 CREATE TABLE AffrontementPersonnage (
+    id_affrontementpersonnage INT PRIMARY KEY,
     id_personnage1 INT,
     id_personnage2 INT,
     vote_personnage1 INT,
