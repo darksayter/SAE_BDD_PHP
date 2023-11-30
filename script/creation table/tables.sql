@@ -73,26 +73,24 @@ CREATE TABLE VoiceActor (
 CREATE TABLE classement (
     etapes INT,
     classement INT,
-    mal_id INT PRIMARY KEY,
-    etat BOOLEAN
+    mal_id INT PRIMARY KEY
 );
 
 -- Table for Affrontement --
 CREATE TABLE Affrontement (
-    id1 INT,
-    id2 INT,
-    vote1 INT,
-    vote2 INT,
+    id_anime1 INT,
+    id_anime2 INT,
+    vote_anime1 INT,
+    vote_anime2 INT,
     datedebut DATE,
     datefin DATE,
     gagnant INT,
-    perdant INT,
-    etapes INT
+    perdant INT
 );
 
 -- Table for Profil --
 CREATE TABLE Profil (
-    idprofil INT PRIMARY KEY,
+    id_profil INT PRIMARY KEY,
     nom VARCHAR(255),
     prenom VARCHAR(255),
     datenai DATE,
@@ -108,52 +106,52 @@ CREATE TABLE Profil (
 
 -- Table for Genre --
 CREATE TABLE Genre(
-    idgenre INT PRIMARY KEY,
+    id_genre INT PRIMARY KEY,
     genre VARCHAR(255)
 );
 
 -- Table for Theme --
 CREATE TABLE Theme(
-    idtheme INT PRIMARY KEY,
+    id_theme INT PRIMARY KEY,
     theme VARCHAR(255)
 );
 
 -- Table for AnimeFav --
 CREATE TABLE AnimesFav(
-    idprofil INT,
-    idanime1 INT,
-    idanime2 INT,
-    idanime3 INT,
-    idanime4 INT,
-    idanime5 INT,
+    id_profil INT,
+    id_anime1 INT,
+    id_anime2 INT,
+    id_anime3 INT,
+    id_anime4 INT,
+    id_anime5 INT,
 );
 
 -- Table for MangaFav --
 CREATE TABLE MangasFav(
-    idprofil INT,
-    idmanga1 INT,
-    idmanga2 INT,
-    idmanga3 INT,
-    idmanga4 INT,
-    idmanga5 INT,
+    id_profil INT,
+    id_manga1 INT,
+    id_manga2 INT,
+    id_manga3 INT,
+    id_manga4 INT,
+    id_manga5 INT,
 );
 
 -- Table for PersonnageFav --
 CREATE TABLE PersonnagesFav(
-    idprofil INT,
-    idpers1 INT,
-    idpers2 INT,
-    idpers3 INT,
-    idpers4 INT,
-    idpers5 INT,
+    id_profil INT,
+    id_pers1 INT,
+    id_pers2 INT,
+    id_pers3 INT,
+    id_pers4 INT,
+    id_pers5 INT,
 );
 
 -- Table for VoiceActorFav --
 CREATE TABLE VoiceActorsFav(
-    idprofil INT,
-    idacteur1 INT,
-    idacteur2 INT,
-    idacteur3 INT,
-    idacteur4 INT,
-    idacteur5 INT,
+    id_profil INT,
+    id_acteur1 INT,
+    id_acteur2 INT,
+    id_acteur3 INT,
+    id_acteur4 INT,
+    id_acteur5 INT,
 );
