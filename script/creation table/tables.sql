@@ -73,11 +73,12 @@ CREATE TABLE VoiceActor (
 CREATE TABLE classement (
     etapes INT,
     classement INT,
-    mal_id INT PRIMARY KEY
+    mal_id INT PRIMARY KEY,
+    etat BOOLEAN
 );
 
 -- Table for Affrontement --
-CREATE TABLE Affrontement (
+CREATE TABLE AffrontementAnime (
     id_anime1 INT,
     id_anime2 INT,
     vote_anime1 INT,
@@ -85,7 +86,47 @@ CREATE TABLE Affrontement (
     datedebut DATE,
     datefin DATE,
     gagnant INT,
-    perdant INT
+    perdant INT,
+    etapes INT
+);
+
+-- Table for Affrontement --
+CREATE TABLE AffrontementManga (
+    id_manga1 INT,
+    id_manga2 INT,
+    vote_manga1 INT,
+    vote_manga2 INT,
+    datedebut DATE,
+    datefin DATE,
+    gagnant INT,
+    perdant INT,
+    etapes INT
+);
+
+-- Table for Affrontement --
+CREATE TABLE AffrontementVoiceActor (
+    id_voiceactor1 INT,
+    id_voiceactor2 INT,
+    vote_voiceactor1 INT,
+    vote_voiceactor2 INT,
+    datedebut DATE,
+    datefin DATE,
+    gagnant INT,
+    perdant INT,
+    etapes INT
+);
+
+-- Table for Affrontement --
+CREATE TABLE AffrontementPersonnage (
+    id_personnage1 INT,
+    id_personnage2 INT,
+    vote_personnage1 INT,
+    vote_personnage2 INT,
+    datedebut DATE,
+    datefin DATE,
+    gagnant INT,
+    perdant INT,
+    etapes INT
 );
 
 -- Table for Profil --
