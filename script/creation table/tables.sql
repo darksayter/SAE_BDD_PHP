@@ -73,7 +73,7 @@ CREATE TABLE VoiceActor (
 CREATE TABLE classement (
     etapes INT,
     classement INT,
-    mal_id INT PRIMARY KEY,
+    id_claseement INT PRIMARY KEY,
     etat BOOLEAN
 );
 
