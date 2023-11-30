@@ -129,7 +129,7 @@ RETURN (
 );
 
 -- Fonction pour obtenir les anime avec le moins d'épisodes
-CREATE FUNCTION AnimeAvecLePlusEpisodes()
+CREATE FUNCTION AnimeAvecLeMoinsEpisodes()
 RETURNS TABLE (
     mal_id INT,
     title VARCHAR(255),
@@ -143,7 +143,7 @@ RETURN (
 );
 
 -- Fonction pour obtenir les mangas avec le moins de volumes
-CREATE FUNCTION MangaAvecLePlusTomes()
+CREATE FUNCTION MangaAvecLeMoinsTomes()
 RETURNS TABLE (
     mal_id INT,
     title VARCHAR(255),
