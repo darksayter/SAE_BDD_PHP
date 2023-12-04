@@ -1,19 +1,19 @@
-Action
-Adventure
-Drama
-Fantasy
-Sci-Fi
-Suspense
-Supernatural
-Award Winning
-Romance
-Comedy
-Sports
-Mystery
-Slice of Life
-Avant Garde
-Horror
-Ecchi
-Gourmet
-Boys Love
-Girls Love
+INSERT INTO genre VALUES(1,'Action');
+INSERT INTO genre VALUES(2,'Adventure');
+INSERT INTO genre VALUES(3,'Drama');
+INSERT INTO genre VALUES(4,'Fantasy');
+INSERT INTO genre VALUES(5,'Sci-Fi');
+INSERT INTO genre VALUES(6,'Suspense');
+INSERT INTO genre VALUES(7,'Supernatural');
+INSERT INTO genre VALUES(8,'Award Winning');
+INSERT INTO genre VALUES(9,'Romance');
+INSERT INTO genre VALUES(10,'Comedy');
+INSERT INTO genre VALUES(11,'Sports');
+INSERT INTO genre VALUES(12,'Mystery');
+INSERT INTO genre VALUES(13,'Slice of Life');
+INSERT INTO genre VALUES(14,'Avant Garde');
+INSERT INTO genre VALUES(15,'Horror');
+INSERT INTO genre VALUES(16,'Ecchi');
+INSERT INTO genre VALUES(17,'Gourmet');
+INSERT INTO genre VALUES(18,'Boys Love');
+INSERT INTO genre VALUES(19,'Girls Love');

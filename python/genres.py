@@ -32,10 +32,14 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\python\anime.csv', 'r') a
                 x+=1
             liste6 = liste[6].split(']')
             for s in range(1,6):
-            
-                animestxt.write('ARRAY[')
-                animestxt.write(str(liste[s]))
-                animestxt.write('')
+                if s == 1:
+                    pass
+                elif s == 2:
+                    pass
+                else :
+                    animestxt.write('ARRAY[')
+                    animestxt.write(str(liste[s]))
+                    animestxt.write('')
                     
             animestxt.write('ARRAY[')
             animestxt.write(liste6[0])
