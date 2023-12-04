@@ -27,7 +27,7 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\python\anime.csv', 'r') a
     # Le reste de votre code ici
     test = 0
     for line in f:
-        if test < 5:
+        if test < 6:
             compteur = 0
             id = 0
             liste = []
@@ -44,11 +44,17 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\python\anime.csv', 'r') a
                 if x == 0:
                     id = t
                 if x == 0 or x ==3 or x == 4 or x ==6 or x == 10 or x==14:
-                    animestxt.write(str(t))
+                    if len(t) == 0:
+                        animestxt.write('NULL')
+                    else:
+                        animestxt.write(str(t))
                 elif x <15:
-                    animestxt.write('#')
-                    animestxt.write(str(t))
-                    animestxt.write('#')
+                    if len(t) == 0:
+                        animestxt.write('NULL')
+                    else:
+                        animestxt.write('#')
+                        animestxt.write(str(t))
+                        animestxt.write('#')
                 if x < 15:
                     animestxt.write(',')
                 x+=1
