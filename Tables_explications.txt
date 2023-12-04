@@ -1,3 +1,35 @@
+
+------------------les tables principales :
+
+anime / manga / genre / profil / theme / voiceactor / personnage / classement / affrontement
+
+-------------------les tables secondaires :
+
+animegenre / animesfav / animetheme / classement / genresfav 
+/ mangagenre / mangasfav / mangatheme / personnagesfav / themesfav / voiceactorsfav
+
+------------------------les liens :
+
+anime : animegenre / animesfav / animetheme 
+
+manga : mangagenre / mangasfav / mangatheme 
+
+genre : animegenre / mangagenre / genresfav
+
+profil : animesfav / mangasfav / personnagesfav / voiceactorsfav / themesfav / genresfav
+
+theme : animetheme / mangatheme / themesfav
+
+voiceactor : voiceactorsfav
+
+personnage : personnagesfav
+
+classement : classementanime / classementmanga / classementpersonnage / classementvoiceactor
+
+affrontement : affrontementanime / affrontementmanga / affrontementpersonnage / affrontementvoiceactor
+
+--------------------------------------------------------------------------------
+
 Explications de chaqu'unes des tables :
 
 1. anime : pour y placer tout les animes
@@ -53,3 +85,5 @@ Explications de chaqu'unes des tables :
 26. affrontementpersonnage : regroupe les affrontement de touts les personnages 
 
 27. affrontementvoiceactor : regroupe les affrontement de touts les voiceactors
+
+--------------------------------------------------------------------------------
