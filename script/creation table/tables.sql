@@ -15,8 +15,6 @@ CREATE TABLE Anime (
     duration VARCHAR(255),
     rating VARCHAR(255),
     premiered_year INT, 
-    genre INT REFERENCES AnimeGenre(id_genre),
-    themes INT REFERENCES AnimeTheme(id_theme),
     demographics VARCHAR(255)[],
     studios VARCHAR(255)[],
     producers VARCHAR(255)[],
@@ -39,8 +37,6 @@ CREATE TABLE Manga (
     published_to DATE,
     members INT,
     favorites INT,
-    genre INT REFERENCES MangaGenre(id_genre),
-    theme INT REFERENCES MangaTheme(id_theme),
     demographics VARCHAR(255)[],
     authors VARCHAR(255)[],
     serializations VARCHAR(255)[],
@@ -142,24 +138,18 @@ CREATE TABLE Profil (
     genre VARCHAR(255),
     prefetempsvisio VARCHAR(255),
     prefeepoque VARCHAR(255),
-    animefav VARCHAR(255) REFERENCES AnimesFav(id_animefav),
-    mangafav VARCHAR(255) REFERENCES MangasFav(id_mangafav),
-    persfav VARCHAR(255) REFERENCES PersonnagesFav(id_personnagefav),
-    acteurfav VARCHAR(255) REFERENCES VoiceActorsFav(id_voiceactorfav),
-    genrefav VARCHAR(255) REFERENCES GenresFav(id_genrefav),
-    themefav VARCHAR(255) REFERENCES ThemesFav(id_themefav)
 );
 
 -- Table for Genre --
 CREATE TABLE Genre(
     id_genre INT PRIMARY KEY,
-    genre VARCHAR(255)[]
+    genre VARCHAR(255)
 );
 
 -- Table for Theme --
 CREATE TABLE Theme(
     id_theme INT PRIMARY KEY,
-    theme VARCHAR(255)[]
+    theme VARCHAR(255)
 );
 
 -- Table for AnimeFav --
