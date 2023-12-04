@@ -1,0 +1,19 @@
+1,Action
+2,Adventure
+3,Drama
+4,Fantasy
+5,Sci-Fi
+6,Suspense
+7,Supernatural
+8,Award Winning
+9,Romance
+10,Comedy
+11,Sports
+12,Mystery
+13,Slice of Life
+14,Avant Garde
+15,Horror
+16,Ecchi
+17,Gourmet
+18,Boys Love
+19,Girls Love
