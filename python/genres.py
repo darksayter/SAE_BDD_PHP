@@ -27,7 +27,8 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\python\anime.csv', 'r') a
     # Le reste de votre code ici
     test = 0
     for line in f:
-        if test < 1:
+        if test < 5:
+            compteur = 0
             id = 0
             liste = []
             listedebut = []
@@ -62,7 +63,7 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\python\anime.csv', 'r') a
                     pass
                 else:
                     listedegenredelanime.append(tttttt[1])
-                    
+            
             listedethemedelanime= []
             listedethemedelanimetemporaire= liste[2].split('],')
             listedethemedelanimetemporaire2 = listedethemedelanimetemporaire[0].split(',')
@@ -78,6 +79,7 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\python\anime.csv', 'r') a
                     for g in listedegenredelanime:
                         for m in listegenre:
                             if g == m[1]:
+                                compteur = 1
                                 genreanimetxt.write('INSERT INTO AnimeGenre VALUES(')
                                 genreanimetxt.write(str(id))
                                 genreanimetxt.write(',')
@@ -96,6 +98,8 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\python\anime.csv', 'r') a
                                 themeanimetxt.write('\n')
                 else :
                     animestxt.write('ARRAY[')
+                    if len(liste[s])< 4:
+                        animestxt.write('##')
                     animestxt.write(str(liste[s]))
                     animestxt.write('')
                     
@@ -114,6 +118,7 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\python\anime.csv', 'r') a
             animestxt.write('#')
             animestxt.write(')')
             animestxt.write(';')
+            animestxt.write('\n')
             test +=0
         
         
