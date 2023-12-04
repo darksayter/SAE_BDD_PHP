@@ -14,9 +14,7 @@ CREATE TABLE Anime (
     favorites INT,
     duration VARCHAR(255),
     rating VARCHAR(255),
-    premiered_year INT, 
-    genre INT REFERENCES AnimeGenre(id_genre),
-    themes INT REFERENCES AnimeTheme(id_theme),
+    premiered_year INT,
     demographics VARCHAR(255)[],
     studios VARCHAR(255)[],
     producers VARCHAR(255)[],
@@ -39,8 +37,6 @@ CREATE TABLE Manga (
     published_to DATE,
     members INT,
     favorites INT,
-    genre INT REFERENCES MangaGenre(id_genre),
-    theme INT REFERENCES MangaTheme(id_theme),
     demographics VARCHAR(255)[],
     authors VARCHAR(255)[],
     serializations VARCHAR(255)[],
@@ -69,12 +65,52 @@ CREATE TABLE VoiceActor (
     main_picture VARCHAR(255)
 );
 
--- Table for Tournoi --
-CREATE TABLE classement (
+-- Table for Classement --
+CREATE TABLE Classement (
     id_classement INT PRIMARY KEY,
     etapes INT,
     classement INT,
     etat BOOLEAN
+);
+
+-- Table for Classement --
+CREATE TABLE ClassementAnime(
+    id_classementanime INT PRIMARY KEY,
+    id_anime INT REFERENCES Anime(id_anime),
+    id_classement INT REFERENCES Classement(id_classement)
+);
+
+-- Table for Classement --
+CREATE TABLE ClassementManga(
+    id_classementmanga INT PRIMARY KEY,
+    id_manga INT REFERENCES Manga(id_manga),
+    id_classement INT REFERENCES Classement(id_classement)
+);
+
+-- Table for Classement --
+CREATE TABLE ClassementVoiceActor(
+    id_classementvoiceactor INT PRIMARY KEY,
+    id_voiceactor INT REFERENCES VoiceActor(id_voiceactor),
+    id_classement INT REFERENCES Classement(id_classement)
+);
+
+-- Table for Classement --
+CREATE TABLE ClassementPersonnage(
+    id_classementpersonnage INT PRIMARY KEY,
+    id_personnage INT REFERENCES Personnage(id_pers),
+    id_classement INT REFERENCES Classement(id_classement)
+);
+
+-- Table for Genre --
+CREATE TABLE Genre(
+    id_genre INT PRIMARY KEY,
+    genre VARCHAR(255)[]
+);
+
+-- Table for Theme --
+CREATE TABLE Theme(
+    id_theme INT PRIMARY KEY,
+    theme VARCHAR(255)[]
 );
 
 -- Table for Affrontement --
@@ -142,24 +178,6 @@ CREATE TABLE Profil (
     genre VARCHAR(255),
     prefetempsvisio VARCHAR(255),
     prefeepoque VARCHAR(255),
-    animefav VARCHAR(255) REFERENCES AnimesFav(id_animefav),
-    mangafav VARCHAR(255) REFERENCES MangasFav(id_mangafav),
-    persfav VARCHAR(255) REFERENCES PersonnagesFav(id_personnagefav),
-    acteurfav VARCHAR(255) REFERENCES VoiceActorsFav(id_voiceactorfav),
-    genrefav VARCHAR(255) REFERENCES GenresFav(id_genrefav),
-    themefav VARCHAR(255) REFERENCES ThemesFav(id_themefav)
-);
-
--- Table for Genre --
-CREATE TABLE Genre(
-    id_genre INT PRIMARY KEY,
-    genre VARCHAR(255)[]
-);
-
--- Table for Theme --
-CREATE TABLE Theme(
-    id_theme INT PRIMARY KEY,
-    theme VARCHAR(255)[]
 );
 
 -- Table for AnimeFav --
@@ -203,21 +221,25 @@ CREATE TABLE ThemesFav(
 );
 
 CREATE TABLE AnimeGenre(
+    id_animegenre INT PRIMARY KEY,
     id_anime INT REFERENCES Anime(id_anime),
     id_genre INT REFERENCES Genre(id_genre)
 );
 
 CREATE TABLE AnimeTheme(
+    id_animetheme INT PRIMARY KEY,
     id_anime INT REFERENCES Anime(id_anime),
     id_theme INT REFERENCES Theme(id_theme)
 );
 
 CREATE TABLE MangaGenre(
+    id_magengenre INT PRIMARY KEY,
     id_manga INT REFERENCES Manga(id_manga),
     id_genre INT REFERENCES Genre(id_genre)
 );
 
 CREATE TABLE MangaTheme(
+    id_magengenre INT PRIMARY KEY,
     id_manga INT REFERENCES Manga(id_manga),
     id_theme INT REFERENCES Theme(id_theme)
 );
