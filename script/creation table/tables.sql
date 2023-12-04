@@ -114,17 +114,22 @@ CREATE TABLE Theme(
 );
 
 -- Table for Affrontement --
+CREATE TABLE Affrontement(
+    id_affrontement INT PRIMARY KEY,
+    datedebut DATE,
+    datefin DATE,
+    gagnant INT,
+    perdant INT,
+    etapes INT
+);
+
+-- Table for Affrontement --
 CREATE TABLE AffrontementAnime (
     id_affrontementanime INT PRIMARY KEY,
     id_anime1 INT REFERENCES Anime(id_anime),
     id_anime2 INT REFERENCES Anime(id_anime),
     vote_anime1 INT,
     vote_anime2 INT,
-    datedebut DATE,
-    datefin DATE,
-    gagnant INT,
-    perdant INT,
-    etapes INT
 );
 
 -- Table for Affrontement --
@@ -134,11 +139,6 @@ CREATE TABLE AffrontementManga (
     id_manga2 INT REFERENCES Manga(id_manga),
     vote_manga1 INT,
     vote_manga2 INT,
-    datedebut DATE,
-    datefin DATE,
-    gagnant INT,
-    perdant INT,
-    etapes INT
 );
 
 -- Table for Affrontement --
@@ -148,11 +148,6 @@ CREATE TABLE AffrontementVoiceActor (
     id_voiceactor2 INT REFERENCES VoiceActor(id_voiceactor),
     vote_voiceactor1 INT,
     vote_voiceactor2 INT,
-    datedebut DATE,
-    datefin DATE,
-    gagnant INT,
-    perdant INT,
-    etapes INT
 );
 
 -- Table for Affrontement --
@@ -162,11 +157,6 @@ CREATE TABLE AffrontementPersonnage (
     id_personnage2 INT REFERENCES Personnage(id_pers),
     vote_personnage1 INT,
     vote_personnage2 INT,
-    datedebut DATE,
-    datefin DATE,
-    gagnant INT,
-    perdant INT,
-    etapes INT
 );
 
 -- Table for Profil --
@@ -177,19 +167,7 @@ CREATE TABLE Profil (
     datenai DATE,
     genre VARCHAR(255),
     prefetempsvisio VARCHAR(255),
-    prefeepoque VARCHAR(255),
-);
-
--- Table for Genre --
-CREATE TABLE Genre(
-    id_genre INT PRIMARY KEY,
-    genre VARCHAR(255)
-);
-
--- Table for Theme --
-CREATE TABLE Theme(
-    id_theme INT PRIMARY KEY,
-    theme VARCHAR(255)
+    prefeepoque VARCHAR(255)
 );
 
 -- Table for AnimeFav --
