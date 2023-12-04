@@ -4,7 +4,9 @@ import pandas as pd
 i = 0
 routes =  []
 stri = ""
-animestxt = open("python/animes.txt", "w")
+animestxt = open("animes.txt", "w")
+genrestxt = open("genre.txt", "w")
+themestxt = open("themes.txt", "w")
 with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\python\anime.csv', 'r') as f:
     # Le reste de votre code ici
     test = 0
@@ -40,8 +42,17 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\python\anime.csv', 'r') a
             animestxt.write(']')
             animestxt.write('\n')
             liste7 = liste6[1].split(',')
-            print(liste7)
-            test +=1
+            animestxt.write(',')
+            animestxt.write('#')
+            animestxt.write(liste7[1])
+            animestxt.write('#')
+            animestxt.write(',')
+            animestxt.write('#')
+            animestxt.write(liste7[2])
+            animestxt.write('#')
+            animestxt.write(')')
+            animestxt.write(';')
+            # test +=1
         
         
         
@@ -74,3 +85,5 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\python\anime.csv', 'r') a
 
 
 animestxt.close()
+
+

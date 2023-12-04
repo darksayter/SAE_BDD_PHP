@@ -180,6 +180,18 @@ CREATE TABLE Profil (
     prefeepoque VARCHAR(255),
 );
 
+-- Table for Genre --
+CREATE TABLE Genre(
+    id_genre INT PRIMARY KEY,
+    genre VARCHAR(255)
+);
+
+-- Table for Theme --
+CREATE TABLE Theme(
+    id_theme INT PRIMARY KEY,
+    theme VARCHAR(255)
+);
+
 -- Table for AnimeFav --
 CREATE TABLE AnimesFav(
     id_animefav INT PRIMARY KEY,
