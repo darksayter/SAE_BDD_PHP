@@ -129,7 +129,7 @@ CREATE TABLE AffrontementAnime (
     id_anime1 INT REFERENCES Anime(id_anime),
     id_anime2 INT REFERENCES Anime(id_anime),
     vote_anime1 INT,
-    vote_anime2 INT,
+    vote_anime2 INT
 );
 
 -- Table for Affrontement --
@@ -138,7 +138,7 @@ CREATE TABLE AffrontementManga (
     id_manga1 INT REFERENCES Manga(id_manga),
     id_manga2 INT REFERENCES Manga(id_manga),
     vote_manga1 INT,
-    vote_manga2 INT,
+    vote_manga2 INT
 );
 
 -- Table for Affrontement --
@@ -147,7 +147,7 @@ CREATE TABLE AffrontementVoiceActor (
     id_voiceactor1 INT REFERENCES VoiceActor(id_voiceactor),
     id_voiceactor2 INT REFERENCES VoiceActor(id_voiceactor),
     vote_voiceactor1 INT,
-    vote_voiceactor2 INT,
+    vote_voiceactor2 INT
 );
 
 -- Table for Affrontement --
@@ -156,7 +156,7 @@ CREATE TABLE AffrontementPersonnage (
     id_personnage1 INT REFERENCES Personnage(id_pers),
     id_personnage2 INT REFERENCES Personnage(id_pers),
     vote_personnage1 INT,
-    vote_personnage2 INT,
+    vote_personnage2 INT
 );
 
 -- Table for Profil --
