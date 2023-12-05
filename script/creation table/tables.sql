@@ -211,31 +211,37 @@ CREATE TABLE VoiceActorsFav(
     id_voiceactor INT REFERENCES VoiceActor(id_voiceactor)
 );
 
+-- Table for GenresFav --
 CREATE TABLE GenresFav(
     id_profil INT REFERENCES Profil(id_profil),
     id_genre INT REFERENCES Genre(id_genre)
 );
 
+-- Table for ThemesFav --
 CREATE TABLE ThemesFav(
     id_profil INT REFERENCES Profil(id_profil),
     id_theme INT REFERENCES Theme(id_theme)
 );
 
+-- Table for AnimeGenre --
 CREATE TABLE AnimeGenre(
     id_anime INT REFERENCES Anime(id_anime),
     id_genre INT REFERENCES Genre(id_genre)
 );
 
+-- Table for AnimeTheme --
 CREATE TABLE AnimeTheme(
     id_anime INT REFERENCES Anime(id_anime),
     id_theme INT REFERENCES Theme(id_theme)
 );
 
+-- Table for MangaGenre --
 CREATE TABLE MangaGenre(
     id_manga INT REFERENCES Manga(id_manga),
     id_genre INT REFERENCES Genre(id_genre)
 );
 
+-- Table for MangaTheme --
 CREATE TABLE MangaTheme(
     id_manga INT REFERENCES Manga(id_manga),
     id_theme INT REFERENCES Theme(id_theme)
