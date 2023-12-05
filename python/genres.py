@@ -1,8 +1,9 @@
 import numpy as np
 import pandas as pd
 
-
 # Toy's, Brain's
+#remplacer array[] par array['']
+
 i = 0
 routes =  []
 stri = ""
