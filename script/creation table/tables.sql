@@ -104,13 +104,13 @@ CREATE TABLE ClassementPersonnage(
 -- Table for Genre --
 CREATE TABLE Genre(
     id_genre INT PRIMARY KEY,
-    genre VARCHAR(255)[]
+    genre VARCHAR(255)
 );
 
 -- Table for Theme --
 CREATE TABLE Theme(
     id_theme INT PRIMARY KEY,
-    theme VARCHAR(255)[]
+    theme VARCHAR(255)
 );
 
 -- Table for Affrontement --
