@@ -153,7 +153,8 @@ CREATE TABLE AffrontementManga (
     id_manga2 INT REFERENCES Manga(id_manga),
     id_tournoimanga INT REFERENCES TournoiManga(id_tournoimanga),
     vote_manga1 INT,
-    vote_manga2 INT
+    vote_manga2 INT,
+    etapes INT
 );
 
 -- Table for Affrontement --
