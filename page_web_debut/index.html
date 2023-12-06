@@ -3,169 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>ANIME TOURNAMENT</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <ul class="menu">
-        <li>
-          <a href="index.html">Accueil</a>
-        </li>
-        <li>
-          <a href="#">Anime</a>
-        </li>
-        <li>
-          <a href="#">Mangas</a>
-        </li>
-      </ul>
-      <h1>ANIME TOURNAMENT</h1>
-      <h4>Le but de ce projet est de réaliser des statistiques variées sur le thème des séries d’animation ainsi que de leurs personnages et de leurs staffs. Nous avons également ajouté à cela des statistiques de mangas étant donné que de nombreuses séries d’animation sont tirées de ces derniers.
-      </h4>
-      <h2>Membres : </h2>
-      <ul class="membre">
-        <li>David Pauline</li>
-        <li>Duvet Alexandre</li>
-        <li>Duchemin Clement</li>
-      </ul>
-      <h2>Tables : </h2>
-      <ul class="table">
-        <li>
-          <h3>Anime :</h3>
-          <ul class="anime">
-            <li>mal_id (id)</li>
-            <li>title (titre)</li>
-            <li>type (type)</li>
-            <li>score (moyenne des scores)</li>
-            <li>scored_by (nombre de personnes ayant données une note)</li>
-            <li>status (quantite de personne ayant abandonné en visionnage, fini en entier…)</li>
-            <li>episodes (nombre d’épisodes)</li>
-            <li>aired_from (date de début de diffusion)</li>
-            <li>aired_to (date de fin de diffusion)</li>
-            <li>source (matériel original, adaptation)</li>
-            <li>members (nombre de membres)</li>
-            <li>favorites (nombre de favoris)</li>
-            <li>duration (durée)</li>
-            <li>rating (évaluation de l’âge des gens l’ayant vu)</li>
-            <li>premiered_year (année de sortie)</li>
-            <li>genres</li>
-            <li>themes</li>
-            <li>demographics (public visé : adulte; enfant, autre)</li>
-            <li>studios</li>
-            <li>producers</li>
-            <li>licensors</li>
-            <li>synopsis</li>
-            <li>main_picture (image)</li>
-          </ul>
-        </li>
-        <li>
-          <h3>Manga :</h3>
-          <ul class="manga">
-            <li>mal_id (id)</li>
-            <li>title (titre)</li>
-            <li>type</li>
-            <li>score</li>
-            <li>scored_by (nombre de personnes l’ayant noté)</li>
-            <li>status (quantité de personnes l’ayant fini, abandonné en cours…)</li>
-            <li>volumes (nombre de volumes)</li>
-            <li>chapters (nombre de chapitres)</li>
-            <li>published_from (date de début de publication)</li>
-            <li>published_to (date de fin de publication)</li>
-            <li>members (nombre de membres)</li>
-            <li>favorites (nombre de favoris)</li>
-            <li>genres (liste des genres)</li>
-            <li>themes (liste des thèmes)</li>
-            <li>demographics (public visé)</li>
-            <li>authors (auteurs)</li>
-            <li>serializations (liste des magazines sur lesquels ça a été publié)</li>
-            <li>synopsis</li>
-            <li>background (informations additionnelles)</li>
-            <li>main_picture (image)</li>
-          </ul>
-        </li>
-        <li>
-          <h3>Personnages :</h3>
-          <ul class="personnage">
-            <li>mal_id (id)</li>
-            <li>name (nom)</li>
-            <li>nicknames (surnom)</li>
-            <li>favorites (nombre de personnes l’ayant mis en favoris)</li>
-            <li>about (divers)</li>
-            <li>main_picture (image)</li>
-          </ul>
-        </li>
-        <li>
-          <h3>Voice Actor :</h3>
-          <ul class="CU">
-            <li>mal_id (id)</li>
-            <li>name (nom)</li>
-            <li>birthday (date de naissance)</li>
-            <li>favorites (nombre de gens l’ayant mis en favoris)</li>
-            <li>about (divers)</li>
-            <li>main_picture (image)</li>
-          </ul>
-        </li>
-        <li>
-          <h3>Tournoi : </h3>
-          <ul class="tournoi">
-            <li>etapes (étape a laquelle est arrivé la série/personnage ... )</li>
-            <li>classement</li>
-            <li># mal_id (id)</li>
-          </ul>
-        </li>
-        <li>
-          <h3>Affrontement : </h3>
-          <ul class="duel">
-            <li>id1 (# mal_id)</li>
-            <li>id2 (# mal_id)</li>
-            <li>vote1 (nombre de vote(s) pour l'id1)</li>
-            <li>vote2 (nombre de vote(s) pour l'id2)</li>
-            <li>datedebut</li>
-            <li>datefin</li>
-            <li>gagnant</li>
-            <li>perdant</li>
-          </ul>
-        </li>
-        <li>
-          <h3>Profil : </h3>
-          <ul class="profil">
-            <li>idprofil</li>
-            <li>nom</li>
-            <li>prenom</li>
-            <li>age</li>
-            <li>genre</li>
-            <li>prefetempsvisio</li>
-            <li>prefeepoque</li>
-            <li>animefav</li>
-            <li>mangafav</li>
-            <li>persfav</li>
-            <li>acteurfav</li>
-            <li>genrefav</li>
-          </ul>
-        </li>
-      </ul>
-      <h2>Fonctions : </h2>
-      <ul class="fonction">
-          <li>fonctions permettant de donner les séries d’animations, mangas, personnages et acteurs les plus populaires</li>
-          <li>fonction affichant les séries d’animations et mangas les plus souvent abandonnés en visionnage</li>
-          <li>fonctions affichant les acteurs ayant joués dans le plus de séries</li>
-          <li>fonctions affichant les séries et manga comportant le plus de tomes/épisodes</li>
-          
-          <li>fonction permettant de de créer un profil type qui suggère des animés, personnages... en accord avec ce même profil</li>
-          <li>fonction permettant de créer un tournoi</li>
-          <li>fonction permettant de simuler un nombre de votes pendant un duel</li>
-          <li>fonction permettant de créer un affrontement</li>
-          <li>fonction pour insérer des informations dans le profil</li>
-          <li>fonction permettant d'insérer des séries,mangas,personnages,acteurs</li>
-          <li>fonction permettant de supprimer des séries,mangas,personnages,acteurs</li>
-          <li>fonction permettant de modifier des séries,mangas,personnages,acteurs</li>
-          <li>fonction permettant de supprimer un profil</li>
-          <li>fonction permettant de modifier un profil</li>
-          <li>fonction sélectionnant les séries... en accord avec les informations du profil</li>
-      </ul>
-      <h2>Triggers : </h2>
-      <ul class="trigger">
-        <li>trigger pour les victoires ou défaites en affrontement</li>
-        <li>trigger pour les étapes de chaque séries dans le tournoi</li>
-      </ul>
+	<div id="center">
+		<nav class="principale">
+			<ul>
+				<!-- ANIME -->
+				<li class="deroulant"><a href="index.html"> Anime </a>
+					<ul class="sous">
+						<li><a href=".html"> INFO </a></li>
+						<li><a href=".html"> INFO </a></li>
+					</ul>
+				</li>
+				<!-- MANGA -->
+				<li class="deroulant"><a href=".html"> Manga </a>
+					<ul class="sous">
+						<li><a href=".html"> INFO </a></li>
+						<li><a href=".html"> INFO </a></li>
+					</ul>
+				</li>
+				<!-- PERSONNAGES -->
+				<li class="deroulant"><a href=".html"> Personnages </a>
+					<ul class="sous">
+						<li><a href=".html"> INFO </a></li>
+						<li><a href=".html"> INFO </a></li>
+					</ul>
+				</li>
+				<!-- PROFIL -->
+				<li class="deroulant"><a href=".html"> Profil </a>
+					<ul class="sous">
+						<li><a href=".html"> INFO </a></li>
+						<li><a href=".html"> INFO </a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+		<h1>-- > PAGE INDEX < --</h1>
+		<footer>
+			<!-- INFO-->
+			<p><a href ="info.html">Information/sujet</a>	
+			<!-- ACCUEIL-->
+			<a href="index.html">Accueil</a>
+			</p>
+		</footer>
+	</div>
 </body>
 </html>
