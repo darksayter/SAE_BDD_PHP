@@ -52,16 +52,6 @@ CREATE TABLE Personnage (
     nicknames TEXT,
     favorites TEXT,
     about TEXT,
-    main_picture TEXT
-);
-
--- Table for Voice Actor --
-CREATE TABLE VoiceActor (
-    id_voiceactor INT PRIMARY KEY,
-    name VARCHAR(255),
-    birthday DATE,
-    favorites INT,
-    about TEXT,
     main_picture VARCHAR(255)
 );
 
@@ -75,13 +65,6 @@ CREATE TABLE TournoiAnime (
 -- Table for Tournoi --
 CREATE TABLE TournoiManga (
     id_tournoimanga INT PRIMARY KEY,
-    etapes INT,
-    fini BOOLEAN
-);
-
--- Table for Tournoi --
-CREATE TABLE TournoiVoiceActor (
-    id_tournoivoiceactor INT PRIMARY KEY,
     etapes INT,
     fini BOOLEAN
 );
@@ -105,14 +88,6 @@ CREATE TABLE ClassementAnime(
 CREATE TABLE ClassementManga(
     id_manga INT REFERENCES Manga(id_manga),
     id_tournoimanga INT REFERENCES TournoiManga(id_tournoimanga),
-    place INT,
-    etapes INT
-);
-
--- Table for Classement --
-CREATE TABLE ClassementVoiceActor(
-    id_voiceactor INT REFERENCES VoiceActor(id_voiceactor),
-    id_tournoivoiceactor INT REFERENCES TournoiVoiceActor(id_tournoivoiceactor),
     place INT,
     etapes INT
 );
@@ -158,16 +133,6 @@ CREATE TABLE AffrontementManga (
 );
 
 -- Table for Affrontement --
-CREATE TABLE AffrontementVoiceActor (
-    id_voiceactor1 INT REFERENCES VoiceActor(id_voiceactor),
-    id_voiceactor2 INT REFERENCES VoiceActor(id_voiceactor),
-    id_tournoivoiceactor INT REFERENCES TournoiVoiceActor(id_tournoivoiceactor),
-    vote_voiceactor1 INT,
-    vote_voiceactor2 INT,
-    etapes INT
-);
-
--- Table for Affrontement --
 CREATE TABLE AffrontementPersonnage (
     id_personnage1 INT REFERENCES Personnage(id_pers),
     id_personnage2 INT REFERENCES Personnage(id_pers),
@@ -204,12 +169,6 @@ CREATE TABLE MangasFav(
 CREATE TABLE PersonnagesFav(
     id_profil INT REFERENCES Profil(id_profil),
     id_pers INT REFERENCES Personnage(id_pers)
-);
-
--- Table for VoiceActorFav --
-CREATE TABLE VoiceActorsFav(
-    id_profil INT REFERENCES Profil(id_profil),
-    id_voiceactor INT REFERENCES VoiceActor(id_voiceactor)
 );
 
 -- Table for GenresFav --
