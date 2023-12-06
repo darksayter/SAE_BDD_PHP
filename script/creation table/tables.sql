@@ -48,11 +48,11 @@ CREATE TABLE Manga (
 -- Table for Personnages --
 CREATE TABLE Personnage (
     id_pers INT PRIMARY KEY,
-    name VARCHAR(255),
-    nicknames VARCHAR(255)[],
-    favorites INT,
+    name TEXT,
+    nicknames TEXT,
+    favorites TEXT,
     about TEXT,
-    main_picture VARCHAR(255)
+    main_picture TEXT
 );
 
 -- Table for Voice Actor --
