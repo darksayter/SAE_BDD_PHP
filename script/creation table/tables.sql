@@ -55,6 +55,29 @@ CREATE TABLE Personnage (
     main_picture VARCHAR(255)
 );
 
+-- Table for Profil --
+CREATE TABLE Profil (
+    id_profil INT PRIMARY KEY,
+    nom VARCHAR(255),
+    prenom VARCHAR(255),
+    datenai DATE,
+    genre VARCHAR(255),
+    prefetempsvisio VARCHAR(255),
+    prefeepoque VARCHAR(255)
+);
+
+-- Table for Genre --
+CREATE TABLE Genre(
+    id_genre INT PRIMARY KEY,
+    genre VARCHAR(255)
+);
+
+-- Table for Theme --
+CREATE TABLE Theme(
+    id_theme INT PRIMARY KEY,
+    theme VARCHAR(255)
+);
+
 -- Table for Tournoi --
 CREATE TABLE TournoiAnime (
     id_tournoianime INT PRIMARY KEY,
@@ -100,18 +123,6 @@ CREATE TABLE ClassementPersonnage(
     etapes INT
 );
 
--- Table for Genre --
-CREATE TABLE Genre(
-    id_genre INT PRIMARY KEY,
-    genre VARCHAR(255)
-);
-
--- Table for Theme --
-CREATE TABLE Theme(
-    id_theme INT PRIMARY KEY,
-    theme VARCHAR(255)
-);
-
 -- Table for Affrontement --
 CREATE TABLE AffrontementAnime (
     id_anime1 INT REFERENCES Anime(id_anime),
@@ -140,17 +151,6 @@ CREATE TABLE AffrontementPersonnage (
     vote_personnage1 INT,
     vote_personnage2 INT,
     etapes INT
-);
-
--- Table for Profil --
-CREATE TABLE Profil (
-    id_profil INT PRIMARY KEY,
-    nom VARCHAR(255),
-    prenom VARCHAR(255),
-    datenai DATE,
-    genre VARCHAR(255),
-    prefetempsvisio VARCHAR(255),
-    prefeepoque VARCHAR(255)
 );
 
 -- Table for AnimeFav --
