@@ -1,0 +1,14 @@
+Ordre d'insertion de données :
+
+en premier :
+animes.sql
+characters.sql
+manga.sql
+genre.sql
+themes.sql
+
+en deuxième :
+genreanime.sql
+genremanga.sql
+themesanime.sql
+themesmanga.sql
