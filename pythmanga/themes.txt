@@ -1,0 +1,52 @@
+1,Military
+2,Gore
+3,Survival
+4,Psychological
+5,Time Travel
+6,Romantic Subtext
+7,Mecha
+8,Super Power
+9,Mythology
+10,School
+11,Music
+12,Adult Cast
+13,Space
+14,Historical
+15,Parody
+16,Team Sports
+17,Childcare
+18,Organized Crime
+19,Samurai
+20,Gag Humor
+21,Isekai
+22,Reincarnation
+23,Detective
+24,Mahou Shoujo
+25,Delinquents
+26,Workplace
+27,Vampire
+28,Martial Arts
+29,Otaku Culture
+30,Showbiz
+31,Love Polygon
+32,High Stakes Game
+33,Iyashikei
+34,Combat Sports
+35,Strategy Game
+36,Visual Arts
+37,Crossdressing
+38,Reverse Harem
+39,CGDCT
+40,Anthropomorphic
+41,Harem
+42,Video Game
+43,Racing
+44,Performing Arts
+45,Idols (Female)
+46,Idols (Male)
+47,Educational
+48,Medical
+49,Magical Sex Shift
+50,Pets
+51,Memoir
+52,Villainess
