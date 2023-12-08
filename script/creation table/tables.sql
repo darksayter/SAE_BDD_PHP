@@ -42,7 +42,7 @@ CREATE TABLE Manga (
     serializations VARCHAR(255)[],
     synopsis TEXT,
     background TEXT,
-    main_picture VARCHAR(255)
+    main_picture TEXT
 );
 
 -- Table for Personnages --

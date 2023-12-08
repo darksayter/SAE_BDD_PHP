@@ -25,7 +25,7 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\pythmanga\themes.txt', 'r
         listetheme.append(tempo)
 
 
-
+nombredetheme = 0
 with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\pythmanga\manga.sql', 'r') as f:
     test = 0
     for line in f:  
@@ -64,6 +64,7 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\pythmanga\manga.sql', 'r'
                 
                 if len(listethememanga)>3:
                     for gender8 in listethememanga:
+                        nombredetheme+=1
                         for gender9 in listetheme:
                             if str(gender8) == str(gender9[1]):
                                 thememangatxt.write('INSERT INTO mangatheme VALUES(')
@@ -86,21 +87,21 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\pythmanga\manga.sql', 'r'
                     mangatxt.write(',')
                 listeseinen = liste2[3].split(']')
                 if len(listeseinen[0])<3:
-                    mangatxt.write("ARRAY['']")
+                    mangatxt.write("ARRAY[''],")
                 else : 
                     mangatxt.write("ARRAY[")
                     mangatxt.write(listeseinen[0])
                     mangatxt.write("],")
                 listejsp = liste2[4].split(']')
                 if len(listejsp[0])<3:
-                    mangatxt.write("ARRAY['']")
+                    mangatxt.write("ARRAY[''],")
                 else : 
                     mangatxt.write("ARRAY[")
                     mangatxt.write(listejsp[0])
                     mangatxt.write("],")
                 listejsp2 = liste2[5].split(']')
                 if len(listejsp[0])<3:
-                    mangatxt.write("ARRAY['']")
+                    mangatxt.write("ARRAY[''],")
                 else : 
                     mangatxt.write("ARRAY[")
                     mangatxt.write(listejsp2[0])
@@ -128,7 +129,7 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\pythmanga\manga.sql', 'r'
         
         
         
-
+print(nombredetheme)
 
 mangatxt.close()
 genremangatxt.close()
