@@ -1,0 +1,56 @@
+CREATE OR REPLACE FUNCTION AnimeLePlusPopulaire()
+RETURNS TABLE (
+    id_anime INT,
+    title VARCHAR(255),
+    score FLOAT
+) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT a.id_anime, a.title, a.score
+    FROM Anime a
+    WHERE a.score IS NOT NULL
+    ORDER BY a.score DESC
+    LIMIT 10;
+END;
+$$ LANGUAGE plpgsql;
+
+
+
+CREATE OR REPLACE FUNCTION MangaLePlusPopulaire()
+RETURNS TABLE (
+    id_manga INT,
+    title VARCHAR(255),
+    score FLOAT
+) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT m.id_manga, m.title, m.score
+    FROM Manga m
+    WHERE m.score IS NOT NULL
+    ORDER BY m.score DESC
+    LIMIT 10;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE FUNCTION PersonnageLePlusPopulaire()
+RETURNS TABLE (
+    id_pers INT,
+    name TEXT,
+    favorites INT
+) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT p.id_pers, p.name, p.favorites
+    FROM Personnage p
+    WHERE p.favorites IS NOT NULL
+    ORDER BY p.favorites DESC
+    LIMIT 10;
+END;
+$$ LANGUAGE plpgsql;
+
+
+
+SELECT * FROM AnimeLePlusPopulaire();
+SELECT * FROM MangaLePlusPopulaire();
+SELECT * FROM PersonnageLePlusPopulaire();

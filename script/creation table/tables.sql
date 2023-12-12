@@ -50,7 +50,7 @@ CREATE TABLE Personnage (
     id_pers INT PRIMARY KEY,
     name TEXT,
     nicknames TEXT,
-    favorites TEXT,
+    favorites INT,
     about TEXT,
     main_picture VARCHAR(255)
 );
