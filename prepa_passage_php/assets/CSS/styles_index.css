@@ -1,0 +1,112 @@
+@font-face {
+    font-family: '...';
+    src: url('../POLICE/');
+} /*ajouter la police souhaiter*/
+
+body {
+    font-family: '...';
+    font-size: 15px;
+    color: #333333;
+    line-height: 150%;
+    background-color: #E8F2FF ;
+    margin : 0%;
+    padding : 0%;
+
+}
+.tete {
+    color: #ffffff;
+    background-color: white;
+    display: block;
+    font-size: 150%;
+    font: bold;
+    text-transform: uppercase;
+
+}
+
+footer {
+    color: #888888;
+    background-color: #3A69A8;
+    /* line-height: 120%; */
+    border-color: #3A69A8;
+    height : auto;
+    margin-bottom: 0;
+}
+body{
+    text-align: center;
+}
+
+.menu_position,.tete
+{
+    left:0px;
+    right:0px;
+}
+.menu_position
+{
+    top: 0px;
+}
+
+.menus
+{
+    margin: 0px;
+    background-color: #3A69A8;
+    text-align: center;
+    line-height: 300%;
+    color : white;
+    
+}
+.liens
+{
+    padding-right: 20px;
+    padding-left: 20px;
+    display:inline-block;
+    color : white;
+    text-decoration: none;
+
+}
+
+.liens:hover{
+    background-color: #B0CCF1;
+    color : white;
+}
+
+img {
+    display : block;
+    width: 100%;
+
+}
+
+.lien{
+    text-decoration: none;
+    color : white;
+    line-height: 30px;
+}
+
+.footer-container:hover{
+    text-decoration: underline;
+}
+
+.footer-container a:hover{
+    background-color: none;
+    color : white;
+}
+
+.footer-container {
+    margin-left : 40%;
+    margin-right : 40%;
+}
+
+.accueil{
+    background-color: #3A69A8;
+    color : white;
+    line-height: 300%;
+    
+}
+
+nav.contenu{
+    background : white; 
+    text-align: justify;
+    margin-left : 20%;
+    margin-right : 20%;
+    padding : 5% 5% 5% 5%;
+}
+
