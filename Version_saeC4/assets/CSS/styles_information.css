@@ -1,10 +1,10 @@
 @font-face {
-    font-family: '...';
-    src: url('../POLICE/');
+    font-family: 'neon';
+    src: url('../POLICE/Neon.ttf');
 } /*ajouter la police souhaiter*/
 
 body {
-    font-family: '...';
+    font-family: 'neon';
     font-size: 15px;
     color: #333333;
     line-height: 150%;
@@ -30,6 +30,7 @@ footer {
     border-color: #3A69A8;
     height : auto;
     margin-bottom: 0;
+    box-shadow:0px 1px 2px rgb(43, 43, 43);
 }
 body{
     text-align: center;
@@ -105,9 +106,10 @@ img {
 nav.secondaire{
     background : white; 
     text-align: justify;
-    margin-left : 20%;
-    margin-right : 20%;
+    margin-left : 10%;
+    margin-right : 10%;
     padding : 5% 5% 5% 5%;
+    box-shadow:0px 1px 2px rgb(43, 43, 43);
 }
 
 nav.secondaire h2{
@@ -127,3 +129,101 @@ nav.secondaire h3{
     padding: 0.5rem;
     text-decoration: underline 1.5px;
 }
+
+nav.secondaire h1{
+    text-align: center;
+}
+
+/*Partie menu*/
+
+nav.principale,.tete
+{
+    left:0px;
+    right:0px;
+}
+nav.principale
+{
+    width: 100%;
+    margin: 0 auto;
+    background-color: #3A69A8;
+    top:0px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow:0px 1px 2px rgb(43, 43, 43);
+    height:auto;
+}
+
+nav.principale ul
+{
+    list-style-type: none;
+    margin: 0px 0px 0px 0px;
+}
+
+nav.principale ul li
+{
+    float: left;
+    width: 10%;
+    text-align: center;
+    position:relative;
+}
+    
+nav.principale ul::after
+{
+    content:"";
+    display:table;
+    clear:both;
+}
+    
+nav.principale a
+{
+    display: block;
+    text-decoration:none;
+    color: White;
+    border-bottom:2px solid transparent;
+    padding: 10px 0px;
+}
+    
+nav.principale a:hover
+{
+    color: black;
+    border-bottom: 2px solid black;
+}
+    
+.sous
+{
+    display:none;
+    box-shadow:0px 1px 2px rgb(43, 43, 43);
+    background-color:rgba(149, 149, 149, 0.501);
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+    
+nav.principale > ul li:hover .sous
+{
+    display: block;
+}
+    
+.sous li
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+    
+.sous a
+{
+    padding: 10px;
+    border-bottom: none;
+}
+    
+.sous a:hover
+{
+    border-bottom:none;
+}
+    
+.deroulant > a::after
+{
+    font-size:12px;
+}
+    

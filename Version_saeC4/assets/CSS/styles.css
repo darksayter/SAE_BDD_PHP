@@ -1,19 +1,24 @@
-@font-face {
-    font-family: '...';
-    src: url('../POLICE/');
+@font-face
+{
+    font-family: 'neon';
+    src: url('../POLICE/Neon.ttf');
 } /*ajouter la police souhaiter*/
 
-body {
-    font-family: '...';
+body
+{
+    font-family: 'neon';
     font-size: 15px;
     color: #333333;
     line-height: 150%;
     background-color: #E8F2FF ;
     margin : 0%;
     padding : 0%;
+    text-align: center;
 
 }
-.tete {
+
+.tete
+{
     color: #ffffff;
     background-color: white;
     display: block;
@@ -23,37 +28,17 @@ body {
 
 }
 
-footer {
+footer
+{
     color: #888888;
     background-color: #3A69A8;
     /* line-height: 120%; */
     border-color: #3A69A8;
     height : auto;
     margin-bottom: 0;
-}
-body{
-    text-align: center;
+    box-shadow:0px 1px 2px rgb(43, 43, 43);
 }
 
-.menu_position,.tete
-{
-    left:0px;
-    right:0px;
-}
-.menu_position
-{
-    top: 0px;
-}
-
-.menus
-{
-    margin: 0px;
-    background-color: #3A69A8;
-    text-align: center;
-    line-height: 300%;
-    color : white;
-    
-}
 .liens
 {
     padding-right: 20px;
@@ -64,48 +49,145 @@ body{
 
 }
 
-.liens:hover{
+.liens:hover
+{
     background-color: #B0CCF1;
     color : white;
 }
 
-img {
+img
+{
     display : block;
     width: 100%;
 
 }
 
-.lien{
+.lien
+{
     text-decoration: none;
     color : white;
     line-height: 30px;
 }
 
-.footer-container:hover{
+.footer-container:hover
+{
     text-decoration: underline;
 }
 
-.footer-container a:hover{
+.footer-container a:hover
+{
     background-color: none;
     color : white;
 }
 
-.footer-container {
+.footer-container 
+{
     margin-left : 40%;
     margin-right : 40%;
 }
 
-.accueil{
-    background-color: #3A69A8;
-    color : white;
-    line-height: 300%;
-    
-}
-
-nav.contenu{
+nav.contenu
+{
     background : white; 
     text-align: justify;
-    margin-left : 20%;
-    margin-right : 20%;
+    margin-left : 10%;
+    margin-right : 10%;
     padding : 5% 5% 5% 5%;
+    text-align: center;
+    box-shadow:0px 1px 2px rgb(43, 43, 43);
 }
+
+
+/*Partie menu*/
+
+nav.principale,.tete
+{
+    left:0px;
+    right:0px;
+}
+nav.principale
+{
+    width: 100%;
+    margin: 0 auto;
+    background-color: #3A69A8;
+    top:0px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow:0px 1px 2px rgb(43, 43, 43);
+    height:auto;
+}
+
+nav.principale ul
+{
+    list-style-type: none;
+    margin: 0px 0px 0px 0px;
+}
+
+nav.principale ul li
+{
+    float: left;
+    width: 10%;
+    text-align: center;
+    position:relative;
+}
+    
+nav.principale ul::after
+{
+    content:"";
+    display:table;
+    clear:both;
+}
+    
+nav.principale a
+{
+    display: block;
+    text-decoration:none;
+    color: White;
+    border-bottom:2px solid transparent;
+    padding: 10px 0px;
+}
+    
+nav.principale a:hover
+{
+    color: black;
+    border-bottom: 2px solid black;
+}
+    
+.sous
+{
+    display:none;
+    box-shadow:0px 1px 2px rgb(43, 43, 43);
+    background-color:rgba(149, 149, 149, 0.501);
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+    
+nav.principale > ul li:hover .sous
+{
+    display: block;
+}
+    
+.sous li
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+    
+.sous a
+{
+    padding: 10px;
+    border-bottom: none;
+}
+    
+.sous a:hover
+{
+    border-bottom:none;
+}
+    
+.deroulant > a::after
+{
+    font-size:12px;
+}
+    
