@@ -10,26 +10,54 @@
   <header class="tete">
        <img src="./assets/PICTURE/" alt="banniere">
   </header>
-  <nav class="menu_position">
-    <div class="accueil" >
-      <a class="liens" href="index.html">ACCUEIL</a>
-    </div>
-    <ul class="menus">
-      <a href="anime.html" class="liens">ANIME</a>  
-      <a href="manga.html" class="liens">MANGA</a>
-      <a href="personnage.html" class="liens">PERSONNAGE</a>  
-      <a href="profil.html" class="liens">PROFIL</a>
-    </ul>
-  </nav>
+  <!-- HEADER -->
+  <header class="tete">
+    <img src="./assets/PICTURE/" alt="banniere">
+    /espace pour la banière + logo/
+</header>
+<!-- MENU -->
+<nav class="principale">
+ <ul>
+   <!-- ACCUEIL -->
+   <li class="deroulant"><a href="index.html"> Accueil </a></li>
+   <!-- ANIME -->
+   <li class="deroulant"><a href=".html"> Anime </a>
+     <ul class="sous">
+       <li><a href=".html"> INFO </a></li>
+     </ul>
+   </li>
+   <!-- MANGA -->
+   <li class="deroulant"><a href=".html"> Manga </a>
+     <ul class="sous">
+       <li><a href=".html"> INFO </a></li>        </ul>
+   </li>
+   <!-- PERSONNAGES -->
+   <li class="deroulant"><a href=".html"> Personnages </a>
+     <ul class="sous">
+       <li><a href=".html"> INFO </a></li>
+     </ul>
+   </li>
+   <!-- PROFIL -->
+   <li class="deroulant"><a href=".html"> Profil </a>
+     <ul class="sous">
+       <li><a href=".html"> INFO </a></li>
+     </ul>
+   </li>
+   /Connexion a ajouter dans cette partie/
+ </ul>
+</nav>
   <body>
     <nav class="secondaire">
         <h1>ANIME TOURNAMENT</h1>
+        <br>
         <p><h4>Le but de ce projet est de réaliser des statistiques variées sur le thème des séries d’animation ainsi que de leurs personnages et de leurs staffs. Nous avons également ajouté à cela des statistiques de mangas étant donné que de nombreuses séries d’animation sont tirées de ces derniers.
         </h4></p>
+        <br>
         <h2>Membres : </h2>
             <li>David Pauline</li>
             <li>Duvet Alexandre</li>
             <li>Duchemin Clement</li>
+            <br>
         <h2>Tables : </h2>
             <h3>Anime :</h3>
                 <li>id_anime (id, clé primaire, INT)</li>
@@ -54,6 +82,7 @@
                 <li>synopsis (bref résumer, TEXT)</li>
                 <li>main_picture (lien image, VARCHAR)</li>
             </li>
+            <br>
 
             <h3>Manga :</h3>
                 <li>id_manga (id, clé primaire, INT)</li>
@@ -74,7 +103,7 @@
                 <li>synopsis (bref résumer, TEXT)</li>
                 <li>background (informations additionnelles, TEXT)</li>
                 <li>main_picture (lien image, VARCHAR)</li>
-
+                <br>
             <h3>Personnages :</h3>
                 <li>id_pers (id, clé primaire, INT)</li>
                 <li>name (nom, VARCHAR)</li>
@@ -82,48 +111,48 @@
                 <li>favorites (nombre de personnes l’ayant mis en favoris, INT)</li>
                 <li>about (divers, TEXT)</li>
                 <li>main_picture (lien image, VARCHAR)</li>
-            
+                <br>
             <h3>Genre : </h3>
                 <li>id_genre (id, clé primaire, INT)</li>
                 <li>genre (nom du genre, VARCHAR)</li>
-            
+                <br>
             <h3>Theme : </h3>
                 <li>id_theme (id, clé primaire, INT)</li>
                 <li>theme (nom du theme, VARCHAR)</li>
-
+                <br>
             <h3>TournoiAnime : </h3>
                 <li>id_tournoianime (id, clé primaire, INT)</li>
                 <li>etapes (étape a laquelle est arrivé la série/personnage, INT )</li>
                 <li>fini BOOLEAN</li>
-            
+                <br>
             <h3>TournoiManga : </h3>
                 <li>id_tournoimanga (id, clé primaire, INT)</li>
                 <li>etapes (étape a laquelle est arrivé la série/personnage, INT )</li>
                 <li>fini BOOLEAN</li>
-            
+                <br>
             <h3>TournoiPersonnage : </h3>
                 <li>id_tournoipersonnage (id, clé primaire, INT)</li>
                 <li>etapes (étape a laquelle est arrivé la série/personnage, INT )</li>
                 <li>fini BOOLEAN</li>
-
+                <br>
             <h3>ClassementAnime : </h3>
                 <li>id_anime (l'id de la table Anime, INT)</li>
                 <li>id_tournoianime (l'id de la table TournoiAnime, INT)</li>
                 <li>place (la place dans le classement, INT)</li>
                 <li>etapes (étape a laquelle est arrivé de l'anime, INT)</li>
-
+                <br>
             <h3>ClassementManga : </h3>
                 <li>id_manga (l'id de la table Manga, INT)</li>
                 <li>id_tournoimanga (l'id de la table TournoiManga, INT)</li>
                 <li>place (la place dans le classement, INT)</li>
                 <li>etapes (étape a laquelle est arrivé du manga, INT)</li>
-
+                <br>
             <h3>ClassementPersonnage : </h3>
                 <li>id_personnage (l'id de la table Personnage, INT)</li>
                 <li>id_tournoipersonnage (l'id de la table TournoiPersonnage, INT)</li>
                 <li>place (la place dans le classement, INT)</li>
                 <li>etapes (étape a laquelle est arrivé le personnage, INT)</li>
-
+                <br>
             <h3>AffrontementAnime : </h3>
                 <li>id_anime1 (l'id1 de la table Anime, INT)</li>
                 <li>id_anime2 (l'id2 de la table Anime, INT)</li>
@@ -131,7 +160,7 @@
                 <li>vote_anime1 (nombre de vote(s) pour l'id1, INT)</li>
                 <li>vote_anime2 (nombre de vote(s) pour l'id2, INT)</li>
                 <li>etapes (étape actuelle de l'affrontement, INT)</li>
-
+                <br>
             <h3>AffrontementManga : </h3>
                 <li>id_manga1 (l'id1 de la table Manga, INT)</li>
                 <li>id_manga2 (l'id2 de la table Manga, INT)</li>
@@ -139,7 +168,7 @@
                 <li>vote_manga1 (nombre de vote(s) pour l'id1, INT)</li>
                 <li>vote_manga2 (nombre de vote(s) pour l'id2, INT)</li>
                 <li>etapes (étape actuelle de l'affrontement, INT)</li>
-
+                <br>
             <h3>AffrontementPersonnage : </h3>
                 <li>id_personnage1 (l'id1 de la table Manga, INT)</li>
                 <li>id_personnage2 (l'id2 de la table Manga, INT)</li>
@@ -147,7 +176,7 @@
                 <li>vote_personnage1 (nombre de vote(s) pour l'id1, INT)</li>
                 <li>vote_personnage2 (nombre de vote(s) pour l'id2, INT)</li>
                 <li>etapes (étape actuelle de l'affrontement, INT)</li>
-
+                <br>
             <h3>Profil : </h3>
                 <li>id_profil (id, clé primaire, INT)</li>
                 <li>nom (nom, VARCHAR)</li>
@@ -156,7 +185,7 @@
                 <li>genre (genre de l'utilisateur si il l'a spécialiser lors de son inscription, VARCHAR)</li>
                 <li>"prefetempsvisio (aide a la recommandation des animes a visionner en fonction de leurs nb d'épisodes, VARCHAR)"</li>
                 <li>prefeepoque (aide a la recommandation des animes en fonction de leurs date de sortie, VARCHAR)</li>
-            
+                <br>
             <h3>AnimeFav : </h3>
                 <li>id_profil (l'id de la table Profil, INT)</li>
                 <li>id_anime (l'id de la table Anime, INT)</li>
@@ -164,27 +193,27 @@
             <h3>MangaFav : </h3>
                 <li>id_profil (l'id de la table Profil, INT)</li>
                 <li>id_manga (l'id de la table Manga, INT)</li>
-            
+                <br>
             <h3>PersonnageFav : </h3>
                 <li>id_profil (l'id de la table Profil, INT)</li>
                 <li>id_personnage (l'id de la table Personnage, INT)</li>
-
+                <br>
             <h3>AnimeGenre : </h3>
                 <li>id_anime (l'id de la table Anime, INT)</li>
                 <li>id_genre (l'id de la table Genre, INT)</li>
-
+                <br>
             <h3>AnimeTheme : </h3>
                 <li>id_anime (l'id de la table Anime, INT)</li>
                 <li>id_theme (l'id de la table Theme, INT)</li>
-
+                <br>
             <h3>MangaGenre : </h3>
                 <li>id_manga (l'id de la table Manga, INT)</li>
                 <li>id_genre (l'id de la table Genre, INT)</li>
-
+                <br>
             <h3>MangaTheme: </h3>
                 <li>id_manga (l'id de la table Manga, INT)</li>
                 <li>id_theme (l'id de la table Theme, INT)</li>
-
+                <br>
         <h2>Fonctions : </h2>
             <li>Fonction pour obtenir les anime les plus populaires</li>
             <li>Fonction pour obtenir les mangas les plus populaires</li>
@@ -204,6 +233,7 @@
             <li>Fonction permettant de supprimer un profil</li>
             <li>Fonction permettant de modifier un profil</li>
             <li>Fonction sélectionnant les séries... en accord avec les informations du profil</li>
+            <br>
     </nav>
   </body>
   <footer>
