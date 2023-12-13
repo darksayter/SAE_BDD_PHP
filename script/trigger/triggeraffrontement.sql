@@ -29,7 +29,6 @@ BEGIN
         SET place = CASE WHEN id_anime = NEW.id_anime1 THEN new_place_winner ELSE new_place_loser END
         WHERE id_anime IN (NEW.id_anime1, NEW.id_anime2) AND id_tournoianime = NEW.id_tournoianime;
 
-        -- Recherche des participants sans affrontement à cette étape
 
     END IF;
 
