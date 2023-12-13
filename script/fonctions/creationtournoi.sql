@@ -1,3 +1,16 @@
+CREATE OR REPLACE FUNCTION EstPuissanceDeDeux(n INT) RETURNS BOOLEAN AS $$
+BEGIN
+    IF n <= 0 THEN
+        RETURN FALSE;
+    ELSEIF n = 1 THEN
+        RETURN TRUE;
+    ELSE
+        RETURN (n % 2 = 0) AND EstPuissanceDeDeux(n / 2);
+    END IF;
+END;
+$$ LANGUAGE plpgsql;
+
+
 CREATE OR REPLACE PROCEDURE CreerTournoiAnime(
     etapes INT,
     fini BOOLEAN,
@@ -8,7 +21,7 @@ DECLARE
     max_id INT;
     nombre_affrontements INT;
 BEGIN
-    IF nombre_participants > 1 AND nombre_participants % 2 = 0 THEN
+    IF EstPuissanceDeDeux(nombre_participants) AND nombre_participants > 1 THEN
         SELECT COALESCE(MAX(id_tournoianime), 0) + 1 INTO max_id FROM TournoiAnime;
 
         INSERT INTO TournoiAnime (id_tournoianime, etapes, fini)
@@ -38,7 +51,7 @@ DECLARE
     max_id INT;
     nombre_affrontements INT;
 BEGIN
-    IF nombre_participants > 1 AND nombre_participants % 2 = 0 THEN
+    IF EstPuissanceDeDeux(nombre_participants) AND nombre_participants > 1 THEN
         SELECT COALESCE(MAX(id_tournoimanga), 0) + 1 INTO max_id FROM TournoiManga;
 
         INSERT INTO TournoiManga (id_tournoimanga, etapes, fini)
@@ -67,7 +80,7 @@ DECLARE
     max_id INT;
     nombre_affrontements INT;
 BEGIN
-    IF nombre_participants > 1 AND nombre_participants % 2 = 0 THEN
+    IF EstPuissanceDeDeux(nombre_participants) AND nombre_participants > 1 THEN
         SELECT COALESCE(MAX(id_tournoipersonnage), 0) + 1 INTO max_id FROM TournoiPersonnage;
 
         INSERT INTO TournoiPersonnage (id_tournoipersonnage, etapes, fini)
@@ -86,6 +99,6 @@ $$ LANGUAGE plpgsql;
 
 
 
-CALL CreerTournoiAnime(0, false, 8);
-CALL CreerTournoiPersonnage(0, false,8);
-CALL CreerTournoiManga(0, false,8);
+CALL CreerTournoiAnime(0, false, 4);
+CALL CreerTournoiPersonnage(0, false,4);
+CALL CreerTournoiManga(0, false,4);

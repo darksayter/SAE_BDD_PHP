@@ -33,5 +33,5 @@ END;
 $$ LANGUAGE plpgsql;
 
 
-SELECT * FROM AnimeAvecLePlusEpisodes();
-SELECT * FROM MangaAvecLePlusTomes();
+SELECT * FROM AnimeAvecLePlusEpisodes(5);
+SELECT * FROM MangaAvecLePlusTomes(5);
