@@ -58,6 +58,8 @@ CREATE TABLE Personnage (
 -- Table pour Profil --
 CREATE TABLE Profil (
     id_profil INT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    mdp VARCHAR(30) NOT NULL,
     nom VARCHAR(255),
     prenom VARCHAR(255),
     datenai DATE,
