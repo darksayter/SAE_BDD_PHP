@@ -209,10 +209,3 @@ CREATE TABLE MangaTheme(
     id_manga INT REFERENCES Manga(id_manga),
     id_theme INT REFERENCES Theme(id_theme)
 );
-
--- Table pour log_profil --
-CREATE TABLE log_profil (
-    log_id SERIAL PRIMARY KEY,
-    id_profil INT REFERENCES Profil(id_profil),
-    login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
