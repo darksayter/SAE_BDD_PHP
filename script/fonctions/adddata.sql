@@ -1,5 +1,7 @@
 CREATE OR REPLACE PROCEDURE AjouterAnimeAvecThemesGenres(
     titre VARCHAR(255),
+    genres VARCHAR(255)[] DEFAULT NULL,
+    themes VARCHAR(255)[] DEFAULT NULL,
     type_anime VARCHAR(255) DEFAULT NULL,
     score FLOAT DEFAULT NULL,
     scored_by INT DEFAULT NULL,
@@ -18,18 +20,19 @@ CREATE OR REPLACE PROCEDURE AjouterAnimeAvecThemesGenres(
     producteurs VARCHAR(255)[] DEFAULT NULL,
     licencieurs VARCHAR(255)[] DEFAULT NULL,
     synopsis TEXT DEFAULT NULL,
-    image_principale VARCHAR(255) DEFAULT NULL,
-    themes VARCHAR(255)[] DEFAULT NULL,
-    genres VARCHAR(255)[] DEFAULT NULL
+    image_principale VARCHAR(255) DEFAULT NULL
 )
 LANGUAGE plpgsql AS $$
 DECLARE
     nouvel_id INT;
     theme_id INT;
     genre_id INT;
+    theme_rec RECORD;
+    genre_rec RECORD;
 BEGIN
     SELECT COALESCE(MAX(id_anime), 0) + 1 INTO nouvel_id FROM Anime;
 
+    -- Insérer les informations de l'animé dans la table Anime
     INSERT INTO Anime(
         id_anime, title, type, score, scored_by, status, episodes, aired_from, aired_to,
         source, members, favorites, duration, rating, premiered_year, demographics,
@@ -40,24 +43,32 @@ BEGIN
         source, membres, favoris, duree, notation, annee_premiere, demographics,
         studios, producteurs, licencieurs, synopsis, image_principale
     );
+
+    -- Insérer les thèmes
     IF themes IS NOT NULL THEN
-        FOREACH theme_id IN ARRAY themes LOOP
-            SELECT id_theme INTO theme_id FROM Theme WHERE theme = theme_id;
-            IF theme_id IS NOT NULL THEN
-                INSERT INTO AnimeTheme(id_anime, id_theme) VALUES (nouvel_id, theme_id);
+        FOR theme_rec IN SELECT * FROM Theme LOOP
+            IF theme_rec.theme = ANY(themes) THEN
+                INSERT INTO AnimeTheme(id_anime, id_theme)
+                VALUES (nouvel_id, theme_rec.id_theme);
             END IF;
         END LOOP;
     END IF;
 
-    IF 
-    FOREACH genre_id IN ARRAY genres LOOP
-        SELECT id_genre INTO genre_id FROM Genre WHERE genre = genre_id;
-        IF genre_id IS NOT NULL THEN
-            INSERT INTO AnimeGenre(id_anime, id_genre) VALUES (nouvel_id, genre_id);
-        END IF;
-    END LOOP;
+    -- Insérer les genres
+    IF genres IS NOT NULL THEN
+        FOR genre_rec IN SELECT * FROM Genre LOOP
+            IF genre_rec.genre = ANY(genres) THEN
+                INSERT INTO AnimeGenre(id_anime, id_genre)
+                VALUES (nouvel_id, genre_rec.id_genre);
+            END IF;
+        END LOOP;
+    END IF;
 END;
 $$;
 
 
-CALL AjouterAnimeAvecThemesGenres('test');
+
+
+CALL AjouterAnimeAvecThemesGenres('test2', ARRAY['Action', 'Girls Love', 'car']);
+SELECT * FROM anime ORDER BY id_anime DESC LIMIT 1;
+SELECT * FROM AnimeGenre ORDER BY id_anime DESC LIMIT 3;
