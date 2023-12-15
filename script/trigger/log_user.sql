@@ -1,6 +1,6 @@
 -- Création du déclencheur associé à la table users
-CREATE TRIGGER log_user_trigger
+CREATE TRIGGER log_profil_trigger
 AFTER INSERT
-ON users
+ON Profil
 FOR EACH ROW
-EXECUTE FUNCTION insert_log_user;
+EXECUTE FUNCTION insert_log_profil();

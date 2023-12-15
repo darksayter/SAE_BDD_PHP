@@ -1,9 +1,8 @@
 -- Création du déclencheur
-CREATE OR REPLACE FUNCTION insert_log_user()
+CREATE OR REPLACE FUNCTION insert_log_profil()
 RETURNS TRIGGER AS $$
 BEGIN
-    -- Insérer une nouvelle ligne dans log_users avec l'ID de l'utilisateur et le temps actuel
-    INSERT INTO log_users (user_id) VALUES (NEW.user_id);
+    INSERT INTO log_profil(id_profil) VALUES (NEW.id_profil);
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
