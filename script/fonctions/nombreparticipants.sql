@@ -1,35 +1,40 @@
-CREATE OR REPLACE FUNCTION VerifierAffrontementsTermines(id_tournoi INT)
+CREATE OR REPLACE FUNCTION NombreParticipantsTournoiAnime(id_tournoi INT)
 RETURNS INT AS $$
 DECLARE
-    etape INT := 0;
-    temporaire BOOLEAN := false;
-    etape_affrontement RECORD;
+    nombre_participants INT;
 BEGIN
-    LOOP
-        
-        temporaire := false;
+    SELECT COUNT(*) * 2 INTO nombre_participants
+    FROM AffrontementAnime
+    WHERE etapes = 0 AND id_tournoianime = id_tournoi;
 
-        FOR etape_affrontement IN (
-            SELECT vote_anime1, vote_anime2
-            FROM AffrontementAnime AS ea
-            WHERE ea.id_tournoianime = id_tournoi and ea.etapes = etape
-        ) LOOP
-            IF (SELECT COUNT(*) FROM AffrontementAnime WHERE vote_anime1 = 0 AND vote_anime2 = 0 and etapes = etape) > 0 THEN
-                temporaire := true;
-            END IF;
-
-            IF temporaire THEN
-                RETURN etape;
-            END IF;
-        END LOOP;
-
-        EXIT WHEN temporaire;
-        etape := etape + 1;
-    END LOOP;
-
-    RETURN 0;
+    RETURN nombre_participants;
 END;
 $$ LANGUAGE plpgsql;
 
 
-SELECT * FROM VerifierAffrontementsTermines(1);
+CREATE OR REPLACE FUNCTION NombreParticipantsTournoiManga(id_tournoi INT)
+RETURNS INT AS $$
+DECLARE
+    nombre_participants INT;
+BEGIN
+    SELECT COUNT(*) * 2 INTO nombre_participants
+    FROM AffrontementManga
+    WHERE etapes = 0 AND id_tournoimanga = id_tournoi;
+
+    RETURN nombre_participants;
+END;
+$$ LANGUAGE plpgsql;
+
+
+CREATE OR REPLACE FUNCTION NombreParticipantsTournoiPersonnage(id_tournoi INT)
+RETURNS INT AS $$
+DECLARE
+    nombre_participants INT;
+BEGIN
+    SELECT COUNT(*) * 2 INTO nombre_participants
+    FROM AffrontementPersonnage
+    WHERE etapes = 0 AND id_tournoipersonnage = id_tournoi;
+
+    RETURN nombre_participants;
+END;
+$$ LANGUAGE plpgsql;
