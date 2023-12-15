@@ -58,14 +58,15 @@ CREATE TABLE Personnage (
 -- Table pour Profil --
 CREATE TABLE Profil (
     id_profil INT PRIMARY KEY,
-    username VARCHAR(100) NOT NULL UNIQUE,
-    mdp VARCHAR(30) NOT NULL,
+    username VARCHAR(30) NOT NULL UNIQUE,
+    password VARCHAR(30) NOT NULL,
     nom VARCHAR(255),
     prenom VARCHAR(255),
     datenai DATE,
     genre VARCHAR(255),
     prefetempsvisio VARCHAR(255),
-    prefeepoque VARCHAR(255)
+    prefeepoque VARCHAR(255),
+    cree_a TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Table pour Genre --
@@ -207,4 +208,11 @@ CREATE TABLE MangaGenre(
 CREATE TABLE MangaTheme(
     id_manga INT REFERENCES Manga(id_manga),
     id_theme INT REFERENCES Theme(id_theme)
+);
+
+-- Table pour log_profil --
+CREATE TABLE log_profil (
+    log_id SERIAL PRIMARY KEY,
+    id_profil INT REFERENCES Profil(id_profil),
+    login_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
