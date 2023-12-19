@@ -76,6 +76,6 @@ END;
 $$ LANGUAGE plpgsql;
 
 
-SELECT * FROM RechercherAnimeParNom('re zero');
+SELECT * FROM RechercherAnimeParNom('test');
 SELECT * FROM RechercherMangaParNom('onepiece');
 SELECT * FROM RechercherPersonnageParNom('emilia');
