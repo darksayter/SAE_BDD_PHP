@@ -1,0 +1,333 @@
+/* Partie CSS */
+
+@font-face
+{
+    font-family: 'neon';
+    src: url('../POLICE/Neon.ttf');
+} /*ajouter la police souhaiter*/
+
+body
+{
+    font-family: 'neon';
+    font-size: 15px;
+    color: #333333;
+    line-height: 150%;
+    background-color: #efe9ff ;
+    margin : 0%;
+    padding : 0%;
+    text-align: center;
+
+}
+
+img
+{
+    display : block;
+    width: 100%;
+
+}
+
+.lien
+{
+    text-decoration: none;
+    color : white;
+    line-height: 30px;
+}
+
+.tete
+{
+    color: #ffffff;
+    background-color: white;
+    display: block;
+    font-size: 150%;
+    font: bold;
+    text-transform: uppercase;
+
+}
+
+/* Partie FOOTER */
+
+footer
+{
+    color: #888888;
+    background-color: #333333;
+    /* line-height: 120%; */
+    border-color: #333333;
+    height : auto;
+    margin-bottom: 0;
+    box-shadow:0px 1px 2px rgb(43, 43, 43);
+}
+
+.liens
+{
+    padding-right: 20px;
+    padding-left: 20px;
+    display:inline-block;
+    color : white;
+    text-decoration: none;
+
+}
+
+.liens:hover
+{
+    background-color: #B0CCF1;
+    color : white;
+}
+
+.footer-container:hover
+{
+    text-decoration: underline;
+}
+
+.footer-container a:hover
+{
+    background-color: none;
+    color : white;
+}
+
+.footer-container 
+{
+    margin-left : 40%;
+    margin-right : 40%;
+}
+
+/* Partie contenu */
+
+nav.contenu
+{
+    background : white; 
+    text-align: justify;
+    margin-left : 15%;
+    margin-right : 15%;
+    padding : 5% 5% 5% 5%;
+    text-align: center;
+    box-shadow:0px 1px 2px rgb(43, 43, 43);
+}
+
+nav.contenu h1{
+    font-size: 50px;
+}
+
+nav.contenu p{
+    font-size: 15px;
+}
+
+
+/*Partie menu*/
+
+nav.principale,.tete
+{
+    left:0px;
+    right:0px;
+}
+nav.principale 
+{
+    width: auto;
+    background-color: #6d44bd;
+    top:0px;
+    text-align: justify;
+    font-weight: bold;
+    font-size:15px;
+    box-shadow:0px 1px 2px rgb(43, 43, 43);
+    height:auto;
+    margin: 0% 15% 0% 15%;
+    display: bloc;
+}
+
+nav.principale ul
+{
+    list-style-type: none;
+    margin: 0px 0px 0px 0px;
+    padding-left:0px;
+    width: 150%;
+    
+}
+
+nav.principale ul li
+{
+    float: left;
+    width: 10%;
+    text-align: center;
+    position:relative;
+}
+nav.principale ul li ul 
+{
+    font-size:13px;
+    padding-left:10px;
+}
+    
+nav.principale ul::after
+{
+    content:"";
+    display:table;
+    clear:both;
+}
+    
+nav.principale a
+{
+    display: block;
+    text-decoration:none;
+    color: White;
+    border-bottom:2px solid transparent;
+    padding: 10px 0px;
+}
+    
+nav.principale a:hover
+{
+    color: black;
+    border-bottom: 2px solid black;
+}
+    
+.sous
+{
+    display:none;
+    box-shadow:0px 1px 2px rgb(43, 43, 43);
+    background-color:rgb(160, 160, 171);
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+    
+nav.principale > ul li:hover .sous
+{
+    display: block;
+}
+
+input.input_text 
+{
+    margin-top: 10px;
+    background-color: #333333;
+    border:black solid 1px;
+    color:white;
+}
+
+.sous li
+{
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+    
+.sous a
+{
+    padding: 10px;
+    border-bottom: none;
+}
+    
+.sous a:hover
+{
+    border-bottom:none;
+}
+    
+.deroulant > a::after
+{
+    font-size:12px;
+}
+
+/*Partie NomSite*/
+
+nav.nomSite{
+    background-color: #333333;
+    margin: 0 auto;
+    top:0px;
+    font-weight: bold;
+    height:auto;
+    color:white;
+    padding-right: 15.2%;
+    
+}
+
+nav.nomSite ul{
+    list-style-type: none;
+    margin: 0px 0px 0px 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: right;
+}
+
+nav.nomSite a{
+    text-decoration: none;
+    color: white;
+}
+/*btn*/
+
+nav.nomSite button{
+    border-radius: 2px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 100%;
+    margin-left: 8px;
+    min-width: 90px;
+    padding: 4px 8px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    
+}
+
+nav.nomSite button.btn1{
+    border: rgb(160, 160, 171) 2px solid;
+    background-color: rgb(160, 160, 171);
+}
+
+nav.nomSite button.btn2{
+    border: #6d44bd 2px solid;
+    background-color: #6d44bd;
+}
+
+nav.nomSite button{
+    cursor:pointer;
+    
+}
+
+nav.nomSite button.btn1:hover{
+    border: rgb(185, 185, 197) 2px solid;
+    background-color: rgb(185, 185, 197);
+}
+
+nav.nomSite button.btn2:hover{
+    border: #7854d8 2px solid;
+    background-color: #7854d8;
+}
+
+/*AJOUT POUR LA PAGE INFO*/
+
+.accueil{
+    background-color: #6c4cc2;
+    color : white;
+    line-height: 300%;
+    
+}
+
+nav.secondaire{
+    background : white; 
+    text-align: justify;
+    margin-left : 15%;
+    margin-right : 15%;
+    padding : 5% 5% 5% 5%;
+    box-shadow:0px 1px 2px rgb(43, 43, 43);
+}
+
+nav.secondaire h2{
+    margin: 1rem;
+    padding: 0.5rem;
+    font-weight: bold;
+    color : black ;
+    text-decoration: underline 1.5px;
+}
+
+nav.secondaire li{
+    padding: 0.0005rem;
+    margin:1rem;
+}
+
+nav.secondaire h3{
+    padding: 0.5rem;
+    text-decoration: underline 1.5px;
+}
+
+nav.secondaire h1{
+    text-align: center;
+}
+
+/* ... */
