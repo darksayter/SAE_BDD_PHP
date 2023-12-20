@@ -4,58 +4,69 @@
   <head>
     <meta charset="utf-8" />
     <title>ANIME TOURNAMENT</title>
-    <link rel="stylesheet" href="./assets/CSS/styles_information.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/CSS/styles.css" type="text/css" />
   </head>
 
-  <header class="tete">
-       <img src="./assets/PICTURE/" alt="banniere">
-  </header>
   <!-- HEADER -->
   <header class="tete">
     <img src="./assets/PICTURE/" alt="banniere">
     /espace pour la banière + logo/
 </header>
-<!-- MENU -->
-<nav class="principale">
-  <ul>
-    <!-- ACCUEIL -->
-    <li class="deroulant"><a href="index.html"> Accueil </a></li>
-    <!-- ANIME -->
-    <li class="deroulant"><a href="anime.html"> Anime </a>
-      <ul class="sous">
-        <li><a href="classement.html"> Classement </a></li>
-        <br>
-        <br>
-        <li><a href="tournoi_anime.html"> Tournoi</a></li>
-      </ul>
-    </li>
-    <!-- MANGA -->
-    <li class="deroulant"><a href="manga.html"> Manga </a>
-      <ul class="sous">
-        <li><a href="classement.html"> Classement </a></li>
-        <br>
-        <br>
-        <li><a href="tournoi_manga.html"> Tournoi </a></li>        </ul>
-    </li>
-    <!-- PERSONNAGES -->
-    <li class="deroulant"><a href="personnages.html"> Personnages </a>
-      <ul class="sous">
-        <li><a href="classement.html"> Classement </a></li>
-        <br>
-        <br>
-        <li><a href="tournoi_personnages.html"> Tournoi </a></li>
-      </ul>
-    </li>
-    <!-- PROFIL -->
-    <li class="deroulant"><a href="profil.html"> Profil </a>
-      <ul class="sous">
-        <li><a href="parametres.html"> Paramètres </a></li>
-      </ul>
-    </li>
-    /Connexion a ajouter dans cette partie/
+
+ <!-- NAV NOM DU SITE -->
+ <nav class="nomSite">
+  <!-- NOM DU SITE / LOGO -->
+  <ul><a href="index.html">ANIME TOURNAMENT</a> <!-- A remplacer par le logo titre du site qui quand on clique dessus sa redirige sur la page d'accueil (index.html)  si possible le placer sur la gauche des btn -->
+    <!-- BTN DE CONNEXION -->
+    <button class="btn1" type="button" onclick="window.location.href = 'conexion.html';">Login</button>
+    <button class="btn2" type="button" onclick="window.location.href = 'conexion.html';">Sign Up</button>
   </ul>
-</nav>
+ </nav>
+
+  <!-- MENU -->
+  <nav class="principale">
+    <ul>
+
+      <!-- ANIME -->
+      <li class="deroulant"><a href="anime.html"> Anime </a>
+        <ul class="sous">
+          <li><a href="classementAnime.html"> Classement </a></li>
+          <br>
+          <br>
+          <li><a href="tournoi_anime.html"> Tournoi</a></li>
+        </ul>
+      </li>
+      <!-- MANGA -->
+      <li class="deroulant"><a href="manga.html"> Manga </a>
+        <ul class="sous">
+          <li><a href="classementManga.html"> Classement </a></li>
+          <br>
+          <br>
+          <li><a href="tournoi_manga.html"> Tournoi </a></li>        
+        </ul>
+      </li>
+      <!-- PERSONNAGES -->
+      <li class="deroulant"><a href="personnages.html"> Personnages </a>
+        <ul class="sous">
+          <li><a href="classementPersonnages.html"> Classement </a></li>
+          <br>
+          <br>
+          <li><a href="tournoi_personnages.html"> Tournoi </a></li>
+        </ul>
+      </li>
+      <!-- PROFIL -->
+      <!-- <li class="deroulant"><a href="profil.html"> Profil </a>
+        <ul class="sous">
+          <li><a href="parametres.html"> Paramètres </a></li>
+        </ul>
+      </li> -->
+      <!-- AJOUT D'UNE BARRE DE RECHERCHE -->
+    </ul>
+  </nav>
+
   <body>
+
+    <!-- CONTENU -->
     <nav class="secondaire">
         <h1>ANIME TOURNAMENT</h1>
         <br>
@@ -271,8 +282,16 @@
             <li> Trigger pour vérifier et créer un affrontement Anime (VerifierEtCreerAffrontementAnime)</li>
             <li> Trigger pour vérifier et créer un affrontement Personnage (VerifierEtCreerAffrontementPersonnage)</li>
             <li> Trigger pour vérifier et créer un affrontement Manga (VerifierEtCreerAffrontementManga)</li>
+            <li> Trigger pour ... (a voir)</li>
+            <li> Trigger pour ... (a voir)</li>
+            <li> Trigger pour ... (a voir)</li>
+            <li> Trigger pour ... (a voir)</li>
+            <li> Trigger pour ... (a voir)</li>
+            <li> Trigger pour ... (a voir)</li>
         </nav>
+
   </body>
+
   <footer>
     <div class="footer-container">
       <a href="mention_legale.html" class="lien"> Mention légale </a>
@@ -280,4 +299,5 @@
         <a href="information.html" class="lien"> Information complémentaires </a>
     </div> 
   </footer>
+  
 </html>

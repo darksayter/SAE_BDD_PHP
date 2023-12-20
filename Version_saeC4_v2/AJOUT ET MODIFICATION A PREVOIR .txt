@@ -1,0 +1,19 @@
+AJOUT ET MODIFICATION A PREVOIR :
+
+Ajouter une barre de recherche dans le menu.
+
+
+COULEURS DU SITE WEB : 
+- VIOLET #6c4cc2
+- GRIS FONCER #333333
+
+
+A FAIRE :
+
+Intégrer le menu dans chaque page 
+Intégrer le foot dans chaque page
+(PHP)
+
+
+Il n'y a plus d=qu'un seule feuille css pour toutes les pages html
+
