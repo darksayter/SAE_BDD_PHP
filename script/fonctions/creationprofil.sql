@@ -19,6 +19,52 @@ BEGIN
 END;
 $$;
 
+
+CREATE OR REPLACE PROCEDURE ModifierProfil(
+    IN p_id_profil INT,
+    IN p_username VARCHAR(30),
+    IN p_password VARCHAR(30),
+    IN p_nom VARCHAR(255),
+    IN p_prenom VARCHAR(255),
+    IN p_datenai DATE,
+    IN p_genre VARCHAR(255),
+    IN p_prefetempsvisio VARCHAR(255) DEFAULT NULL,
+    IN p_prefeepoque VARCHAR(255) DEFAULT NULL
+)
+LANGUAGE plpgsql AS $$
+BEGIN
+    UPDATE Profil
+    SET
+        username = p_username,
+        password = p_password,
+        nom = p_nom,
+        prenom = p_prenom,
+        datenai = p_datenai,
+        genre = p_genre,
+        prefetempsvisio = p_prefetempsvisio,
+        prefeepoque = p_prefeepoque
+    WHERE id_profil = p_id_profil;
+END;
+$$;
+
+
+
+CREATE OR REPLACE PROCEDURE SupprimerProfilParID(
+    IN p_id_profil INT
+)
+LANGUAGE plpgsql AS $$
+BEGIN
+    DELETE FROM Profil WHERE id_profil = p_id_profil;
+    DELETE FROM AnimesFav WHERE id_profil = p_id_profil;
+    DELETE FROM MangasFav WHERE id_profil = p_id_profil;
+    DELETE FROM PersonnagesFav WHERE id_profil = p_id_profil;
+    DELETE FROM GenresFav WHERE id_profil = p_id_profil;
+    DELETE FROM ThemesFav WHERE id_profil = p_id_profil;
+END;
+$$;
+
+
+
 CALL CreerProfil(
     'scipionc',
     'sae',
@@ -29,3 +75,21 @@ CALL CreerProfil(
     'moyen',
     'new-gen'
 );
+
+
+-- Modifier un profil avec un id_profil spécifique
+CALL ModifierProfil(
+    2,
+    'nouveau_username',
+    'nouveau_password',
+    'NouveauNom',
+    'NouveauPrenom',
+    '2000-01-01',
+    'NouveauGenre',
+    'nouveau_prefetempsvisio',
+    'nouveau_prefeepoque'
+);
+
+-- Supprimer un profil avec un id_profil spécifique
+CALL SupprimerProfilParID(1);
+
