@@ -56,6 +56,7 @@ BEGIN
                 VALUES (nouvel_id, theme_rec.id_theme);
             END IF;
         END LOOP;
+    END LOOP;
     END IF;
 
     -- Insérer les genres
@@ -81,16 +82,18 @@ CREATE OR REPLACE PROCEDURE AjouterMangaAvecThemesGenres(
     score FLOAT DEFAULT NULL,
     scored_by INT DEFAULT NULL,
     status VARCHAR(255) DEFAULT NULL,
-    chapters INT DEFAULT NULL,
     volumes INT DEFAULT NULL,
+    chapters INT DEFAULT NULL,
     published_from DATE DEFAULT NULL,
     published_to DATE DEFAULT NULL,
-    source VARCHAR(255) DEFAULT NULL,
+    members INT DEFAULT NULL,
+    favorites INT DEFAULT NULL,
     demographics VARCHAR(255)[] DEFAULT NULL,
     authors VARCHAR(255)[] DEFAULT NULL,
     serialization VARCHAR(255)[] DEFAULT NULL,
     synopsis TEXT DEFAULT NULL,
-    image_principale VARCHAR(255) DEFAULT NULL
+    background TEXT DEFAULT NULL,
+    image_principale TEXT DEFAULT NULL
 )
 LANGUAGE plpgsql AS $$
 DECLARE
@@ -104,12 +107,12 @@ BEGIN
 
     -- Insérer les informations du manga dans la table Manga
     INSERT INTO Manga(
-        id_manga, title, type, score, scored_by, status, chapters, volumes, published_from, published_to,
-        source, demographics, authors, serialization, synopsis, main_picture
+        id_manga, title, type, score, scored_by, status, volumes, chapters, published_from, published_to, members,
+        favorites, demographics, authors, serializations, synopsis, background, main_picture
     )
     VALUES (
-        nouvel_id, titre, type_manga, score, scored_by, status, chapters, volumes, published_from, published_to,
-        source, demographics, authors, serialization, synopsis, image_principale
+        nouvel_id, titre, type_manga, score, scored_by, status, volumes, chapters, published_from, published_to, members,
+        favorites, demographics, authors, serialization, synopsis, background, image_principale
     );
 
     -- Insérer les thèmes du manga

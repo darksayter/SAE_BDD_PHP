@@ -18,18 +18,17 @@ BEGIN
         INNER JOIN AnimeGenre ang ON ang.id_anime = a.id_anime
         INNER JOIN AnimeTheme ant ON ant.id_anime = a.id_anime
         WHERE ((epoque = 1 AND a.premiered_year < 2000) OR (epoque = 2 AND a.premiered_year < 2015 AND a.premiered_year > 2000) OR (epoque = 3 AND a.premiered_year >= 2015))
-        AND
         GROUP BY a.id_anime
     LOOP
         note := 0;
         FOR genre IN SELECT id_genre FROM GenresFav WHERE id_profil = profil_id LOOP
             IF genre = ANY(genres_anime) THEN
-                note := note + 10;
+                note := note + 5;
             END IF;
         END LOOP;
         FOR theme IN SELECT id_theme FROM ThemesFav WHERE id_profil = profil_id LOOP
             IF theme = ANY(themes_anime) THEN
-                note := note + 10;
+                note := note + 5;
             END IF;
         END LOOP;
 
@@ -49,4 +48,56 @@ END;
 $$ LANGUAGE plpgsql;
 
 
+
+CREATE OR REPLACE FUNCTION NoterMangas(
+    profil_id INT,
+    epoque INT
+) 
+RETURNS TABLE (id_manga INT, note BIGINT) AS $$
+DECLARE
+    genres_manga INT[];
+    themes_manga INT[];
+    genre INT;
+    theme INT;
+    genre2 INT;
+    theme2 INT;
+BEGIN
+    FOR id_manga, genres_manga, themes_manga IN
+        SELECT m.id_manga, ARRAY_AGG(DISTINCT mg.id_genre), ARRAY_AGG(DISTINCT mt.id_theme)
+        FROM Manga m
+        INNER JOIN MangaGenre mg ON mg.id_manga = m.id_manga
+        INNER JOIN MangaTheme mt ON mt.id_manga = m.id_manga
+        WHERE ((epoque = 1 AND m.published_from < '2000-01-01') OR (epoque = 2 AND m.published_from < '2015-01-01' AND m.published_from > '2000-01-01') OR (epoque = 3 AND m.published_from >= '2015-01-01'))
+        GROUP BY m.id_manga
+    LOOP
+        note := 0;
+        FOR genre IN SELECT id_genre FROM GenresFav WHERE id_profil = profil_id LOOP
+            IF genre = ANY(genres_manga) THEN
+                note := note + 5;
+            END IF;
+        END LOOP;
+        FOR theme IN SELECT id_theme FROM ThemesFav WHERE id_profil = profil_id LOOP
+            IF theme = ANY(themes_manga) THEN
+                note := note + 5;
+            END IF;
+        END LOOP;
+
+        FOR theme2, genre2 IN (
+            SELECT DISTINCT mmt.id_theme, mmg.id_genre FROM MangaTheme mmt, MangaGenre mmg
+            WHERE mmt.id_manga IN (SELECT mf.id_manga FROM mangasfav mf WHERE mf.id_profil = profil_id)
+            AND mmg.id_manga IN (SELECT mf.id_manga FROM mangasfav mf WHERE mf.id_profil = profil_id)) LOOP
+            IF theme2 = ANY(themes_manga) THEN
+                note := note + 1;
+            END IF;
+        END LOOP;
+
+        RETURN NEXT;
+    END LOOP;
+END;
+$$ LANGUAGE plpgsql;
+
+
+
+
 SELECT * FROM NoterAnimes(1,1) ORDER BY note DESC LIMIT 10;
+SELECT * FROM NoterMangas(1,1) ORDER BY note DESC LIMIT 10;

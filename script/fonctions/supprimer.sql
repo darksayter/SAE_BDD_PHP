@@ -45,3 +45,4 @@ $$;
 
 CALL SupprimerAnimeParID(52421);
 CALL SupprimerMangaParID(149372);
+CALL SupprimerPersonnageParID(214047);

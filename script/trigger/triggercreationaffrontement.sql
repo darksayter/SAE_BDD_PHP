@@ -2,6 +2,7 @@ CREATE OR REPLACE FUNCTION CreerAffrontementAnime()
 RETURNS TRIGGER AS $$
 DECLARE
     id_anime2 INT;
+    id_anime_winner INT;
 BEGIN
     -- Recherche d'un autre participant du même tournoi et de la même étape sans affrontement et qui n'est pas lui-même
     SELECT ca.id_anime INTO id_anime2
@@ -11,7 +12,22 @@ BEGIN
     WHERE ca.id_tournoianime = NEW.id_tournoianime 
     AND (aa1.id_anime1 IS NULL AND aa2.id_anime2 IS NULL) -- Vérifie si le participant n'a pas d'affrontement
     AND ca.etapes = NEW.etapes AND ca.id_anime != NEW.id_anime
+    ORDER BY ca.place ASC
     LIMIT 1;
+
+    SELECT CASE
+        WHEN AffrontementAnime.vote_anime1 > AffrontementAnime.vote_anime2 THEN AffrontementAnime.id_anime1
+        WHEN AffrontementAnime.vote_anime2 > AffrontementAnime.vote_anime1 THEN AffrontementAnime.id_anime2
+        ELSE NULL
+    END INTO id_anime_winner
+    FROM AffrontementAnime
+    WHERE id_tournoianime = NEW.id_tournoianime
+    AND etapes = NEW.etapes - 1;
+
+    -- Utilise l'id de l'anime gagnant si disponible
+    IF id_anime_winner IS NOT NULL THEN
+        id_anime2 := id_anime_winner;
+    END IF;
 
     -- Création de l'affrontement si un autre participant est trouvé
     IF id_anime2 IS NOT NULL THEN
@@ -19,7 +35,7 @@ BEGIN
             id_anime1, id_anime2, id_tournoianime, vote_anime1, vote_anime2, etapes
         )
         VALUES (
-            NEW.id_anime, id_anime2,
+            id_anime_winner, id_anime2,
             NEW.id_tournoianime, 0, 0, NEW.etapes
         );
     END IF;
@@ -27,11 +43,6 @@ BEGIN
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
-
-CREATE TRIGGER VerifierEtCreerAffrontementAnime
-AFTER UPDATE OF etapes ON ClassementAnime
-FOR EACH ROW
-EXECUTE FUNCTION CreerAffrontementAnime();
 
 
 CREATE OR REPLACE FUNCTION CreerAffrontementPersonnage()
