@@ -1,3 +1,5 @@
+-- Déclencheur qui crée un nouvel affrontement anime lorsqu'un participant termine un affrontement.
+
 CREATE OR REPLACE FUNCTION CreerAffrontementAnime()
 RETURNS TRIGGER AS $$
 DECLARE
@@ -15,6 +17,7 @@ BEGIN
     ORDER BY ca.place ASC
     LIMIT 1;
 
+    -- Récupération de l'id de l'anime gagnant au tour précédent s'il existe
     SELECT CASE
         WHEN AffrontementAnime.vote_anime1 > AffrontementAnime.vote_anime2 THEN AffrontementAnime.id_anime1
         WHEN AffrontementAnime.vote_anime2 > AffrontementAnime.vote_anime1 THEN AffrontementAnime.id_anime2
@@ -44,6 +47,14 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+CREATE TRIGGER VerifierEtCreerAffrontementAnime
+AFTER UPDATE OF etapes ON ClassementAnime
+FOR EACH ROW
+EXECUTE FUNCTION CreerAffrontementAnime();
+
+
+-- Déclencheur qui crée un nouvel affrontement personnage lorsqu'un participant termine un affrontement.
 
 CREATE OR REPLACE FUNCTION CreerAffrontementPersonnage()
 RETURNS TRIGGER AS $$
@@ -75,12 +86,15 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
 CREATE TRIGGER VerifierEtCreerAffrontementPersonnage
 AFTER UPDATE OF etapes ON ClassementPersonnage
 FOR EACH ROW
 EXECUTE FUNCTION CreerAffrontementPersonnage();
 
 
+
+-- Déclencheur qui crée un nouvel affrontement manga lorsqu'un participant termine un affrontement.
 
 CREATE OR REPLACE FUNCTION CreerAffrontementManga()
 RETURNS TRIGGER AS $$
@@ -111,6 +125,7 @@ BEGIN
     RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
+
 
 CREATE TRIGGER VerifierEtCreerAffrontementManga
 AFTER UPDATE OF etapes ON ClassementManga

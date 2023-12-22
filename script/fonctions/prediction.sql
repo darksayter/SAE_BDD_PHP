@@ -1,7 +1,9 @@
+-- Fonction qui attribue des notes aux animes en fonction des préférences de l'utilisateur.
+
 CREATE OR REPLACE FUNCTION NoterAnimes(
     profil_id INT,
     epoque INT
-    --watchtimes INT
+    -- watch_time INT
 ) 
 RETURNS TABLE (id_anime INT, note BIGINT) AS $$
 DECLARE
@@ -12,6 +14,7 @@ DECLARE
     genre2 INT;
     theme2 INT;
 BEGIN
+    -- Parcours des animes en fonction de l'époque spécifiée et regroupement par identifiant anime.
     FOR id_anime, genres_anime, themes_anime IN
         SELECT a.id_anime, ARRAY_AGG(DISTINCT ang.id_genre), ARRAY_AGG(DISTINCT ant.id_theme)
         FROM Anime a
@@ -21,18 +24,20 @@ BEGIN
         GROUP BY a.id_anime
     LOOP
         note := 0;
+        -- Attribution des points en fonction des genres favoris de l'utilisateur.
         FOR genre IN SELECT id_genre FROM GenresFav WHERE id_profil = profil_id LOOP
             IF genre = ANY(genres_anime) THEN
                 note := note + 5;
             END IF;
         END LOOP;
+        -- Attribution des points en fonction des thèmes favoris de l'utilisateur.
         FOR theme IN SELECT id_theme FROM ThemesFav WHERE id_profil = profil_id LOOP
             IF theme = ANY(themes_anime) THEN
                 note := note + 5;
             END IF;
         END LOOP;
 
-
+        -- Attribution de points supplémentaires en fonction des thèmes et genres des animes déjà favoris de l'utilisateur.
         FOR theme2, genre2 IN (
             SELECT DISTINCT amt.id_theme, amg.id_genre FROM AnimeTheme amt, AnimeGenre amg
             WHERE amt.id_anime IN (SELECT af.id_anime FROM animesfav af WHERE af.id_profil = profil_id)
@@ -49,6 +54,9 @@ $$ LANGUAGE plpgsql;
 
 
 
+
+-- Fonction qui attribue des notes aux mangas en fonction des préférences de l'utilisateur.
+
 CREATE OR REPLACE FUNCTION NoterMangas(
     profil_id INT,
     epoque INT
@@ -62,6 +70,7 @@ DECLARE
     genre2 INT;
     theme2 INT;
 BEGIN
+    -- Parcours des mangas en fonction de l'époque spécifiée et regroupement par identifiant manga.
     FOR id_manga, genres_manga, themes_manga IN
         SELECT m.id_manga, ARRAY_AGG(DISTINCT mg.id_genre), ARRAY_AGG(DISTINCT mt.id_theme)
         FROM Manga m
@@ -71,17 +80,20 @@ BEGIN
         GROUP BY m.id_manga
     LOOP
         note := 0;
+        -- Attribution des points en fonction des genres favoris de l'utilisateur.
         FOR genre IN SELECT id_genre FROM GenresFav WHERE id_profil = profil_id LOOP
             IF genre = ANY(genres_manga) THEN
                 note := note + 5;
             END IF;
         END LOOP;
+        -- Attribution des points en fonction des thèmes favoris de l'utilisateur.
         FOR theme IN SELECT id_theme FROM ThemesFav WHERE id_profil = profil_id LOOP
             IF theme = ANY(themes_manga) THEN
                 note := note + 5;
             END IF;
         END LOOP;
 
+        -- Attribution de points supplémentaires en fonction des thèmes et genres des mangas déjà favoris de l'utilisateur.
         FOR theme2, genre2 IN (
             SELECT DISTINCT mmt.id_theme, mmg.id_genre FROM MangaTheme mmt, MangaGenre mmg
             WHERE mmt.id_manga IN (SELECT mf.id_manga FROM mangasfav mf WHERE mf.id_profil = profil_id)
@@ -95,6 +107,7 @@ BEGIN
     END LOOP;
 END;
 $$ LANGUAGE plpgsql;
+
 
 
 

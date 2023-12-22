@@ -1,3 +1,5 @@
+-- Procédure qui met à jour un affrontement dans un tournoi anime avec les résultats des votes.
+
 CREATE OR REPLACE PROCEDURE MettreAJourAffrontementAnime(
     id_tournoi INT,
     id_1 INT,
@@ -36,6 +38,9 @@ BEGIN
       AND ((id_anime1 = id_1 AND id_anime2 = id_2) OR (id_anime1 = id_2 AND id_anime2 = id_1));
 END;
 $$ LANGUAGE plpgsql;
+
+
+-- Procédure qui met à jour un affrontement dans un tournoi manga avec les résultats des votes.
 
 CREATE OR REPLACE PROCEDURE MettreAJourAffrontementManga(
     id_tournoi INT,
@@ -76,6 +81,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+-- Procédure qui met à jour un affrontement dans un tournoi personnage avec les résultats des votes.
+
 CREATE OR REPLACE PROCEDURE MettreAJourAffrontementPersonnage(
     id_tournoi INT,
     id_1 INT,
@@ -114,6 +122,7 @@ BEGIN
       AND ((id_personnage1 = id_1 AND id_personnage2 = id_2) OR (id_personnage1 = id_2 AND id_personnage2 = id_1));
 END;
 $$ LANGUAGE plpgsql;
+
 
 
 CALL MettreAJourAffrontementAnime(1,5114,11061,15,3);
