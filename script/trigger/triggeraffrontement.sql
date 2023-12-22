@@ -1,4 +1,5 @@
--- Déclencheur qui met à jour le classement anime après un affrontement.
+-- Déclencheur qui met à jour le classement anime après un affrontement. Par défaut les participants ayant perdus
+-- a la meme étape auront le meme classement (ex-aequo)
 
 CREATE OR REPLACE FUNCTION MettreAJourClassementAnime()
 RETURNS TRIGGER AS $$
@@ -51,7 +52,8 @@ EXECUTE FUNCTION MettreAJourClassementAnime();
 
 
 
--- Déclencheur qui met à jour le classement personnage après un affrontement.
+-- Déclencheur qui met à jour le classement personnage après un affrontement. Par défaut les participants ayant perdus
+-- a la meme étape auront le meme classement (ex-aequo)
 
 CREATE OR REPLACE FUNCTION MettreAJourClassementPersonnage()
 RETURNS TRIGGER AS $$
@@ -101,7 +103,8 @@ EXECUTE FUNCTION MettreAJourClassementPersonnage();
 
 
 
--- Déclencheur qui met à jour le classement manga après un affrontement.
+-- Déclencheur qui met à jour le classement manga après un affrontement. Par défaut les participants ayant perdus
+-- a la meme étape auront le meme classement (ex-aequo)
 
 CREATE OR REPLACE FUNCTION MettreAJourClassementManga()
 RETURNS TRIGGER AS $$

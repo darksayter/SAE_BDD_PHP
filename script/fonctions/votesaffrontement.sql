@@ -1,4 +1,6 @@
--- Procédure qui met à jour un affrontement dans un tournoi anime avec les résultats des votes.
+-- Procédure qui met à jour un affrontement dans un tournoi anime avec les résultats des votes. Le participant avec le plus de vote
+-- sera mis en id 1 et le perdant en id 2. Ici le cas d'une égalité n'as pas été envisagé car nous sommes partis du principe qu'il
+-- ne serait pas possible de mettre deux fois la meme valeur sur le site et que dans tous les cas il n'était pas possible d'avoir une égalité.
 
 CREATE OR REPLACE PROCEDURE MettreAJourAffrontementAnime(
     id_tournoi INT,
@@ -40,7 +42,9 @@ END;
 $$ LANGUAGE plpgsql;
 
 
--- Procédure qui met à jour un affrontement dans un tournoi manga avec les résultats des votes.
+-- Procédure qui met à jour un affrontement dans un tournoi manga avec les résultats des votes. Le participant avec le plus de vote
+-- sera mis en id 1 et le perdant en id 2. Ici le cas d'une égalité n'as pas été envisagé car nous sommes partis du principe qu'il
+-- ne serait pas possible de mettre deux fois la meme valeur sur le site et que dans tous les cas il n'était pas possible d'avoir une égalité.
 
 CREATE OR REPLACE PROCEDURE MettreAJourAffrontementManga(
     id_tournoi INT,
@@ -82,7 +86,9 @@ END;
 $$ LANGUAGE plpgsql;
 
 
--- Procédure qui met à jour un affrontement dans un tournoi personnage avec les résultats des votes.
+-- Procédure qui met à jour un affrontement dans un tournoi personnage avec les résultats des votes. Le participant avec le plus de vote
+-- sera mis en id 1 et le perdant en id 2. Ici le cas d'une égalité n'as pas été envisagé car nous sommes partis du principe qu'il
+-- ne serait pas possible de mettre deux fois la meme valeur sur le site et que dans tous les cas il n'était pas possible d'avoir une égalité.
 
 CREATE OR REPLACE PROCEDURE MettreAJourAffrontementPersonnage(
     id_tournoi INT,

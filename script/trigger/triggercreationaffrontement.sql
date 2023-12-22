@@ -1,4 +1,6 @@
--- Déclencheur qui crée un nouvel affrontement anime lorsqu'un participant termine un affrontement.
+-- Déclencheur qui crée un nouvel affrontement anime lorsqu'un participant termine un affrontement. Le trigger recher à la
+-- fin de chaque affrontement si il y a un autre participant sans affrontement a le meme etape que le gagnant de l'affrontement
+-- qui vient de se terminer
 
 CREATE OR REPLACE FUNCTION CreerAffrontementAnime()
 RETURNS TRIGGER AS $$
@@ -54,7 +56,9 @@ FOR EACH ROW
 EXECUTE FUNCTION CreerAffrontementAnime();
 
 
--- Déclencheur qui crée un nouvel affrontement personnage lorsqu'un participant termine un affrontement.
+-- Déclencheur qui crée un nouvel affrontement personnage lorsqu'un participant termine un affrontement. Le trigger recher à la
+-- fin de chaque affrontement si il y a un autre participant sans affrontement a le meme etape que le gagnant de l'affrontement
+-- qui vient de se terminer
 
 CREATE OR REPLACE FUNCTION CreerAffrontementPersonnage()
 RETURNS TRIGGER AS $$
@@ -94,7 +98,9 @@ EXECUTE FUNCTION CreerAffrontementPersonnage();
 
 
 
--- Déclencheur qui crée un nouvel affrontement manga lorsqu'un participant termine un affrontement.
+-- Déclencheur qui crée un nouvel affrontement manga lorsqu'un participant termine un affrontement. Le trigger recher à la
+-- fin de chaque affrontement si il y a un autre participant sans affrontement a le meme etape que le gagnant de l'affrontement
+-- qui vient de se terminer
 
 CREATE OR REPLACE FUNCTION CreerAffrontementManga()
 RETURNS TRIGGER AS $$

@@ -1,9 +1,10 @@
--- Fonction qui attribue des notes aux animes en fonction des préférences de l'utilisateur.
+-- Fonction qui attribue des notes aux animes en fonction des préférences de l'utilisateur et qui suggère ensuite les mangas
+-- qui correspondent le plus aux gouts de l'utilisateur
 
 CREATE OR REPLACE FUNCTION NoterAnimes(
     profil_id INT,
     epoque INT
-    -- watch_time INT
+    -- watch_time INT       nous ne l'avons pas encore implémenté mais il est possible que cette fonction évolue
 ) 
 RETURNS TABLE (id_anime INT, note BIGINT) AS $$
 DECLARE
@@ -55,7 +56,8 @@ $$ LANGUAGE plpgsql;
 
 
 
--- Fonction qui attribue des notes aux mangas en fonction des préférences de l'utilisateur.
+-- Fonction qui attribue des notes aux mangas en fonction des préférences de l'utilisateur et qui suggère ensuite les mangas
+-- qui correspondent le plus aux gouts de l'utilisateur
 
 CREATE OR REPLACE FUNCTION NoterMangas(
     profil_id INT,

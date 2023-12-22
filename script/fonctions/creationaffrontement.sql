@@ -1,4 +1,4 @@
--- Cette procédure initialise les affrontements pour un tournoi Anime.
+-- Cette procédure initialise les affrontements pour un tournoi de popularité pour les Animes.
 
 CREATE OR REPLACE PROCEDURE InitialiserAffrontementsAnime(
     id_tournoi INT,
@@ -39,7 +39,7 @@ $$ LANGUAGE plpgsql;
 
 
 
--- Cette procédure initialise les affrontements pour un tournoi Manga.
+-- Cette procédure initialise les affrontements pour un tournoi de popularité pour les Mangas.
 
 CREATE OR REPLACE PROCEDURE InitialiserAffrontementsManga(
     id_tournoi INT,
@@ -78,7 +78,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 
--- Cette procédure initialise les affrontements pour un tournoi Personnage.
+-- Cette procédure initialise les affrontements pour un tournoi de popularité pour les Personnages.
 
 CREATE OR REPLACE PROCEDURE InitialiserAffrontementsPersonnage(
     id_tournoi INT,

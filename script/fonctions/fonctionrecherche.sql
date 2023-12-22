@@ -1,4 +1,5 @@
--- Fonction qui recherche des animes par nom, renvoyant une table avec des informations spécifiques.
+-- Fonction qui recherche des animes par nom sans prendre en compte les espaces et caractères spéciaux, 
+-- renvoyant une table avec des informations spécifiques.
 
 CREATE OR REPLACE FUNCTION RechercherAnimeParNom(p_nom VARCHAR(255))
 RETURNS TABLE (
@@ -29,7 +30,8 @@ $$ LANGUAGE plpgsql;
 
 
 
--- Fonction qui recherche des mangas par nom, renvoyant une table avec des informations spécifiques.
+-- Fonction qui recherche des mangas par nomsans prendre en compte les espaces et caractères spéciaux, 
+-- renvoyant une table avec des informations spécifiques.
 
 CREATE OR REPLACE FUNCTION RechercherMangaParNom(p_nom VARCHAR(255))
 RETURNS TABLE (
@@ -59,7 +61,8 @@ $$ LANGUAGE plpgsql;
 
 
 
--- Fonction qui recherche des personnages par nom, renvoyant une table avec des informations spécifiques.
+-- Fonction qui recherche des personnages par nomsans prendre en compte les espaces et caractères spéciaux, 
+-- renvoyant une table avec des informations spécifiques.
 
 CREATE OR REPLACE FUNCTION RechercherPersonnageParNom(p_nom VARCHAR(255))
 RETURNS TABLE (

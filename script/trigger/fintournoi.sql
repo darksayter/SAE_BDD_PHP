@@ -1,4 +1,4 @@
--- Déclencheur qui met à jour le statut "fini" du tournoi anime si le nouvel affrontement a une place égale à 1.
+-- Déclencheur qui met à jour le statut "fini" du tournoi anime si tous les affrontements sont terminés.
 
 CREATE OR REPLACE FUNCTION MettreAJourStatutFiniAnime()
 RETURNS TRIGGER AS $$
@@ -22,7 +22,7 @@ FOR EACH ROW
 EXECUTE FUNCTION MettreAJourStatutFiniAnime();
 
 
--- Déclencheur qui met à jour le statut "fini" du tournoi manga si le nouvel affrontement a une place égale à 1.
+-- Déclencheur qui met à jour le statut "fini" du tournoi manga si tous les affrontements sont terminés.
 
 CREATE OR REPLACE FUNCTION MettreAJourStatutFiniManga()
 RETURNS TRIGGER AS $$
@@ -47,7 +47,7 @@ EXECUTE FUNCTION MettreAJourStatutFiniManga();
 
 
 
--- Déclencheur qui met à jour le statut "fini" du tournoi personnage si le nouvel affrontement a une place égale à 1.
+-- Déclencheur qui met à jour le statut "fini" du tournoi personnage si tous les affrontements sont terminés.
 
 CREATE OR REPLACE FUNCTION MettreAJourStatutFiniPersonnage()
 RETURNS TRIGGER AS $$

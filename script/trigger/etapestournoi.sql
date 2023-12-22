@@ -1,4 +1,5 @@
--- Fonction qui vérifie si tous les affrontements d'une étape dans un tournoi anime sont terminés.
+-- Fonction qui vérifie si tous les affrontements d'une étape dans un tournoi anime sont terminés. Cette fonction est nécessaire
+-- pour le trigger juste après
 
 CREATE OR REPLACE FUNCTION VerifierAffrontementsTerminesAnimes(id_tournoi INT)
 RETURNS INT AS $$
@@ -69,7 +70,8 @@ EXECUTE FUNCTION MettreAJourEtapeTournoiAnime();
 
 
 
--- Fonction qui vérifie si tous les affrontements d'une étape dans un tournoi manga sont terminés.
+-- Fonction qui vérifie si tous les affrontements d'une étape dans un tournoi manga sont terminés. Cette fonction est nécessaire
+-- pour le trigger juste après
 
 CREATE OR REPLACE FUNCTION VerifierAffrontementsTerminesMangas(id_tournoi INT)
 RETURNS INT AS $$
@@ -107,7 +109,8 @@ END;
 $$ LANGUAGE plpgsql;
 
 
--- Déclencheur qui met à jour l'étape du tournoi manga si tous les affrontements de l'étape sont terminés.
+-- Déclencheur qui met à jour l'étape du tournoi manga si tous les affrontements de l'étape sont terminés. Cette fonction est nécessaire
+-- pour le trigger juste après
 
 CREATE OR REPLACE FUNCTION MettreAJourEtapeTournoiManga()
 RETURNS TRIGGER AS $$
