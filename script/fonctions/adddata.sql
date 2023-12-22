@@ -30,6 +30,7 @@ DECLARE
     theme_rec RECORD;
     genre_rec RECORD;
 BEGIN
+    -- prends l'id maximum + 1 pour etre sur d'avoir un id unique
     SELECT COALESCE(MAX(id_anime), 0) + 1 INTO nouvel_id FROM Anime;
 
     -- Insérer les informations de l'animé dans la table Anime
@@ -46,8 +47,11 @@ BEGIN
 
     -- Insérer les thèmes
     IF themes IS NOT NULL THEN
+    -- Pour chaque thème de la liste, teste si un des thèmes en paramètre est le meme.
+    FOREACH theme_rec IN ARRAY themes LOOP
         FOR theme_rec IN SELECT * FROM Theme LOOP
             IF theme_rec.theme = ANY(themes) THEN
+                -- si le thème mis en paramètre est un thème existant, il est ajouté a la table AnimeTheme
                 INSERT INTO AnimeTheme(id_anime, id_theme)
                 VALUES (nouvel_id, theme_rec.id_theme);
             END IF;
@@ -56,8 +60,10 @@ BEGIN
 
     -- Insérer les genres
     IF genres IS NOT NULL THEN
+    -- Pour chaque genre de la liste, teste si un des genres en paramètre est le meme.
         FOR genre_rec IN SELECT * FROM Genre LOOP
             IF genre_rec.genre = ANY(genres) THEN
+            -- si le genre mis en paramètre est un thème existant, il est ajouté a la table AnimeGenre
                 INSERT INTO AnimeGenre(id_anime, id_genre)
                 VALUES (nouvel_id, genre_rec.id_genre);
             END IF;
