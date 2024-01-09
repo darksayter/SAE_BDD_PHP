@@ -243,6 +243,10 @@ nav.nomSite ul{
     text-align: right;
 }
 
+nav.nomSite ul a:hover{
+    color:#6d44bd;
+}
+
 nav.nomSite a{
     text-decoration: none;
     color: white;
