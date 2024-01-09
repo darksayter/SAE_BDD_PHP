@@ -1,0 +1,12 @@
+Liste des éléments a faire apparaître dans la vidéo de présentation du site web :
+
+1. Présentation rapide du site web(juste une breve explication de se que propose le site web) et des principaux acteurs(le groupe)+ page du footer sur les informations complémentaires
+2. Explications des mentions légales
+3. Montrer comment on s'inscrit puis se connecte et l'accès à la page du profil qui possède les informations relative a l'utilisateur (les informations qu'il a entrée pour s'inscrire, ses favoris, etc...)
+4. La page d'accueil du site web 
+5. Les pages Anime Manga et Personnages
+6. Les pages Tournois (de chaque catégories)
+7. Les pages Classement (comment elles fonctionnes)
+8. Comment ajouter un anime ou un manga a ses favoris et comment après sur la page d'accueil les recommandations s'affiche en fonctions des genres présent dans les favoris(par exemple)
+
+
