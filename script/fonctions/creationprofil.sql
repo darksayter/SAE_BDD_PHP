@@ -81,10 +81,10 @@ $$;
 
 
 CALL CreerProfil(
-    'scipionc',
+    'user',
     'sae',
-    'Clement',
-    'Duchemin',
+    'test',
+    'toto',
     '2005-04-01',
     '',
     'moyen',

@@ -1,3 +1,6 @@
+-- Fonction qui recherche des animes par nom sans prendre en compte les espaces et caractères spéciaux, 
+-- renvoyant une table avec des informations spécifiques.
+
 CREATE OR REPLACE FUNCTION RechercherAnimeParNom(p_nom VARCHAR(255))
 RETURNS TABLE (
     id_anime INT,
@@ -25,6 +28,11 @@ $$ LANGUAGE plpgsql;
 
 
 
+
+
+-- Fonction qui recherche des mangas par nomsans prendre en compte les espaces et caractères spéciaux, 
+-- renvoyant une table avec des informations spécifiques.
+
 CREATE OR REPLACE FUNCTION RechercherMangaParNom(p_nom VARCHAR(255))
 RETURNS TABLE (
     id_manga INT,
@@ -47,10 +55,14 @@ BEGIN
     ORDER BY
         CASE WHEN m.score IS NULL THEN 1 ELSE 0 END, -- Place les scores NULL à la fin
         m.score DESC NULLS LAST; -- Tri par note décroissante (NULLS LAST pour placer les scores NULL en dernier)
-
 END;
 $$ LANGUAGE plpgsql;
 
+
+
+
+-- Fonction qui recherche des personnages par nomsans prendre en compte les espaces et caractères spéciaux, 
+-- renvoyant une table avec des informations spécifiques.
 
 CREATE OR REPLACE FUNCTION RechercherPersonnageParNom(p_nom VARCHAR(255))
 RETURNS TABLE (
@@ -74,6 +86,7 @@ BEGIN
         p.favorites DESC NULLS LAST; -- Tri par nombre de favoris décroissant (NULLS LAST pour placer les favoris NULL en dernier)
 END;
 $$ LANGUAGE plpgsql;
+
 
 
 SELECT * FROM RechercherAnimeParNom('test');

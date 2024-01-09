@@ -1,3 +1,5 @@
+-- Fonction qui renvoie les animes avec le plus grand nombre d'épisodes, avec une limite spécifiée.
+
 CREATE OR REPLACE FUNCTION AnimeAvecLePlusEpisodes(limit_count INT)
 RETURNS TABLE (
     id_anime INT,
@@ -16,6 +18,9 @@ $$ LANGUAGE plpgsql;
 
 
 
+
+-- Fonction qui renvoie les mangas avec le plus grand nombre de tomes, avec une limite spécifiée.
+
 CREATE OR REPLACE FUNCTION MangaAvecLePlusTomes(limit_count INT)
 RETURNS TABLE (
     id_manga INT,
@@ -31,6 +36,7 @@ BEGIN
     LIMIT limit_count;
 END;
 $$ LANGUAGE plpgsql;
+
 
 
 SELECT * FROM AnimeAvecLePlusEpisodes(5);
