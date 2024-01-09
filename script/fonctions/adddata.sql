@@ -133,7 +133,6 @@ $$;
 
 
 
-
 -- Cette procédure ajoute un nouveau personnage.
 
 CREATE OR REPLACE PROCEDURE AjouterPersonnage(
@@ -159,8 +158,6 @@ BEGIN
     );
 END;
 $$;
-
-
 
 
 

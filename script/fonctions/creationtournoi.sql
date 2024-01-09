@@ -15,7 +15,6 @@ $$ LANGUAGE plpgsql;
 
 
 
-
 -- Cette procédure crée un tournoi anime avec un nombre spécifié d'étapes et de participants.
 
 CREATE OR REPLACE PROCEDURE CreerTournoiAnime(
@@ -51,6 +50,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+
+-- Cette procédure crée un tournoi manga avec un nombre spécifié d'étapes et de participants.
 
 
 -- Cette procédure crée un tournoi manga avec un nombre spécifié d'étapes et de participants.
@@ -124,7 +126,6 @@ BEGIN
     END IF;
 END;
 $$ LANGUAGE plpgsql;
-
 
 
 

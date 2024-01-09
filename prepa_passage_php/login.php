@@ -1,19 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./assets/CSS/style_login.css">
         <title>Login</title>
+        <link rel="stylesheet" type="text/css" href="/asset/CSS/style_login.css">
+        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
     </head>
     <body>
-        <div class="login-container">
-            <h2>Login</h2>
-            <form action="check_login.php" method="POST">
-                <label for="login">Username:</label>
-                <input type="text" id="login" name="login" required>
-                <button type="submit">Login</button>
-            </form>
+        <div class="main">  	
+            <input type="checkbox" id="chk" aria-hidden="true">
+
+                <div class="signup">
+                    <form>
+                        <label for="chk" aria-hidden="true">Sign up</label>
+                        <input type="text" name="txt" placeholder="User name" required="">
+                        <input type="password" name="pswd" placeholder="Password" required="">
+                        <button>Créer un compte</button>
+                    </form>
+                </div>
+
+                <div class="login">
+                    <form action="check_login.php" method="POST">
+                        <label for="chk" aria-hidden="true">Login</label>
+                        <input type="password" name="pswd" placeholder="Password" required="">
+                        <button>Se connecter</button>
+                    </form>
+                </div>
         </div>
     </body>
 </html>

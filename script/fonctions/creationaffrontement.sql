@@ -1,4 +1,4 @@
--- Cette procédure initialise les affrontements pour un tournoi de popularité pour les Animes.
+-- Cette procédure initialise les affrontements pour un tournoi Anime.
 
 CREATE OR REPLACE PROCEDURE InitialiserAffrontementsAnime(
     id_tournoi INT,
@@ -8,7 +8,6 @@ AS $$
 DECLARE
     total_participants INT;
 BEGIN
-    -- Calcul du nombre total de participants dans les affrontements anime pour le tournoi spécifié
     SELECT COUNT(*) * 2 INTO total_participants
     FROM AffrontementAnime
     WHERE id_tournoianime = id_tournoi;
@@ -39,7 +38,7 @@ $$ LANGUAGE plpgsql;
 
 
 
--- Cette procédure initialise les affrontements pour un tournoi de popularité pour les Mangas.
+-- Cette procédure initialise les affrontements pour un tournoi Manga.
 
 CREATE OR REPLACE PROCEDURE InitialiserAffrontementsManga(
     id_tournoi INT,

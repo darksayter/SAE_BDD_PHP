@@ -12,7 +12,6 @@ END;
 $$;
 
 
-
 -- Cette procédure ajoute un manga aux favoris d'un profil.
 
 CREATE OR REPLACE PROCEDURE AjouterMangaFavoriPourProfil(
@@ -25,7 +24,6 @@ BEGIN
     VALUES (id_profil, id_manga);
 END;
 $$;
-
 
 
 -- Cette procédure ajoute un personnage aux favoris d'un profil.

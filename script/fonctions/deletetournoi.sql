@@ -15,7 +15,6 @@ END;
 $$ LANGUAGE plpgsql;
 
 
-
 -- Supprime tous les affrontements, classements et le tournoi manga associés à un ID de tournoi manga spécifié.
 
 CREATE OR REPLACE PROCEDURE deletetournoimanga(id INT)
@@ -33,7 +32,6 @@ END;
 $$ LANGUAGE plpgsql;
 
 
-
 -- Supprime tous les affrontements, classements et le tournoi personnage associés à un ID de tournoi personnage spécifié.
 
 CREATE OR REPLACE PROCEDURE deletetournoipersonnage(id INT)
@@ -49,7 +47,6 @@ BEGIN
     DELETE FROM TournoiPersonnage WHERE id_tournoipersonnage = id;
 END;
 $$ LANGUAGE plpgsql;
-
 
 
 
