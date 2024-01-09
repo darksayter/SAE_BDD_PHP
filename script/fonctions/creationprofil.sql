@@ -1,3 +1,5 @@
+-- Cette procédure crée un nouveau profil utilisateur.
+
 CREATE OR REPLACE PROCEDURE CreerProfil(
     IN username VARCHAR(30),
     IN password VARCHAR(30),
@@ -12,13 +14,18 @@ LANGUAGE plpgsql AS $$
 DECLARE
     nouvel_id INT;
 BEGIN
+    -- Obtenir un nouvel identifiant unique pour le profil
     SELECT COALESCE(MAX(id_profil), 0) + 1 INTO nouvel_id FROM Profil;
 
+    -- Insérer les informations du profil dans la table Profil
     INSERT INTO Profil(id_profil, username, password, nom, prenom, datenai, genre, prefetempsvisio, prefeepoque, cree_a)
     VALUES (nouvel_id, username, password, nom, prenom, datenai, genre, prefetempsvisio, prefeepoque, CURRENT_TIMESTAMP);
 END;
 $$;
 
+
+
+-- Cette procédure modifie les informations d'un profil existant.
 
 CREATE OR REPLACE PROCEDURE ModifierProfil(
     IN p_id_profil INT,
@@ -33,6 +40,7 @@ CREATE OR REPLACE PROCEDURE ModifierProfil(
 )
 LANGUAGE plpgsql AS $$
 BEGIN
+    -- Mettre à jour les informations du profil dans la table Profil
     UPDATE Profil
     SET
         username = p_username,
@@ -49,12 +57,18 @@ $$;
 
 
 
+
+-- Cette procédure supprime un profil et les favoris associés par identifiant de profil.
+
 CREATE OR REPLACE PROCEDURE SupprimerProfilParID(
     IN p_id_profil INT
 )
 LANGUAGE plpgsql AS $$
 BEGIN
+    -- Supprimer le profil de la table Profil
     DELETE FROM Profil WHERE id_profil = p_id_profil;
+
+    -- Supprimer les favoris associés à ce profil dans différentes tables
     DELETE FROM AnimesFav WHERE id_profil = p_id_profil;
     DELETE FROM MangasFav WHERE id_profil = p_id_profil;
     DELETE FROM PersonnagesFav WHERE id_profil = p_id_profil;
@@ -62,6 +76,7 @@ BEGIN
     DELETE FROM ThemesFav WHERE id_profil = p_id_profil;
 END;
 $$;
+
 
 
 

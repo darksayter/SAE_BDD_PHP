@@ -1,3 +1,5 @@
+-- Cette procédure ajoute un nouvel anime avec ses thèmes et genres associés.
+
 CREATE OR REPLACE PROCEDURE AjouterAnimeAvecThemesGenres(
     titre VARCHAR(255),
     genres VARCHAR(255)[] DEFAULT NULL,
@@ -25,15 +27,13 @@ CREATE OR REPLACE PROCEDURE AjouterAnimeAvecThemesGenres(
 LANGUAGE plpgsql AS $$
 DECLARE
     nouvel_id INT;
-    theme_id INT;
-    genre_id INT;
     theme_rec RECORD;
     genre_rec RECORD;
 BEGIN
-    -- prends l'id maximum + 1 pour etre sur d'avoir un id unique
+    -- Obtenir un nouvel identifiant unique pour l'anime
     SELECT COALESCE(MAX(id_anime), 0) + 1 INTO nouvel_id FROM Anime;
 
-    -- Insérer les informations de l'animé dans la table Anime
+    -- Insérer les informations de l'anime dans la table Anime
     INSERT INTO Anime(
         id_anime, title, type, score, scored_by, status, episodes, aired_from, aired_to,
         source, members, favorites, duration, rating, premiered_year, demographics,
@@ -45,25 +45,20 @@ BEGIN
         studios, producteurs, licencieurs, synopsis, image_principale
     );
 
-    -- Insérer les thèmes
+    -- Insérer les thèmes associés à l'anime
     IF themes IS NOT NULL THEN
-    -- Pour chaque thème de la liste, teste si un des thèmes en paramètre est le meme.
-    FOREACH theme_rec IN ARRAY themes LOOP
         FOR theme_rec IN SELECT * FROM Theme LOOP
             IF theme_rec.theme = ANY(themes) THEN
-                -- si le thème mis en paramètre est un thème existant, il est ajouté a la table AnimeTheme
                 INSERT INTO AnimeTheme(id_anime, id_theme)
                 VALUES (nouvel_id, theme_rec.id_theme);
             END IF;
         END LOOP;
     END IF;
 
-    -- Insérer les genres
+    -- Insérer les genres associés à l'anime
     IF genres IS NOT NULL THEN
-    -- Pour chaque genre de la liste, teste si un des genres en paramètre est le meme.
         FOR genre_rec IN SELECT * FROM Genre LOOP
             IF genre_rec.genre = ANY(genres) THEN
-            -- si le genre mis en paramètre est un thème existant, il est ajouté a la table AnimeGenre
                 INSERT INTO AnimeGenre(id_anime, id_genre)
                 VALUES (nouvel_id, genre_rec.id_genre);
             END IF;
@@ -72,6 +67,9 @@ BEGIN
 END;
 $$;
 
+
+
+-- Cette procédure ajoute un nouveau manga avec ses thèmes et genres associés.
 
 CREATE OR REPLACE PROCEDURE AjouterMangaAvecThemesGenres(
     titre VARCHAR(255),
@@ -95,11 +93,10 @@ CREATE OR REPLACE PROCEDURE AjouterMangaAvecThemesGenres(
 LANGUAGE plpgsql AS $$
 DECLARE
     nouvel_id INT;
-    theme_id INT;
-    genre_id INT;
     theme_rec RECORD;
     genre_rec RECORD;
 BEGIN
+    -- Obtenir un nouvel identifiant unique pour le manga
     SELECT COALESCE(MAX(id_manga), 0) + 1 INTO nouvel_id FROM Manga;
 
     -- Insérer les informations du manga dans la table Manga
@@ -112,7 +109,7 @@ BEGIN
         source, demographics, authors, serialization, synopsis, image_principale
     );
 
-    -- Insérer les thèmes du manga
+    -- Insérer les thèmes associés au manga
     IF themes IS NOT NULL THEN
         FOR theme_rec IN SELECT * FROM Theme LOOP
             IF theme_rec.theme = ANY(themes) THEN
@@ -122,7 +119,7 @@ BEGIN
         END LOOP;
     END IF;
 
-    -- Insérer les genres du manga
+    -- Insérer les genres associés au manga
     IF genres IS NOT NULL THEN
         FOR genre_rec IN SELECT * FROM Genre LOOP
             IF genre_rec.genre = ANY(genres) THEN
@@ -136,6 +133,8 @@ $$;
 
 
 
+-- Cette procédure ajoute un nouveau personnage.
+
 CREATE OR REPLACE PROCEDURE AjouterPersonnage(
     nom TEXT,
     surnoms TEXT DEFAULT NULL,
@@ -147,6 +146,7 @@ LANGUAGE plpgsql AS $$
 DECLARE
     nouvel_id INT;
 BEGIN
+    -- Obtenir un nouvel identifiant unique pour le personnage
     SELECT COALESCE(MAX(id_pers), 0) + 1 INTO nouvel_id FROM Personnage;
 
     -- Insérer les informations du personnage dans la table Personnage
@@ -158,7 +158,6 @@ BEGIN
     );
 END;
 $$;
-
 
 
 

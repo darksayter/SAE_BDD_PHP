@@ -1,3 +1,5 @@
+-- Cette procédure initialise les affrontements pour un tournoi Anime.
+
 CREATE OR REPLACE PROCEDURE InitialiserAffrontementsAnime(
     id_tournoi INT,
     participants INT[]
@@ -6,10 +8,9 @@ AS $$
 DECLARE
     total_participants INT;
 BEGIN
-    SELECT COUNT(*)*2 INTO total_participants
+    SELECT COUNT(*) * 2 INTO total_participants
     FROM AffrontementAnime
     WHERE id_tournoianime = id_tournoi;
-    
 
     IF total_participants = ARRAY_LENGTH(participants, 1) THEN
         DELETE FROM AffrontementAnime WHERE id_tournoianime = id_tournoi;
@@ -32,6 +33,9 @@ END;
 $$ LANGUAGE plpgsql;
 
 
+
+
+-- Cette procédure initialise les affrontements pour un tournoi Manga.
 
 CREATE OR REPLACE PROCEDURE InitialiserAffrontementsManga(
     id_tournoi INT,
@@ -60,11 +64,13 @@ BEGIN
             );
         END LOOP;
     ELSE
-        RAISE EXCEPTION 'Le nombre didentifiants ne correspond pas au nombre total de participants pour ce tournoi Manga.';
+        RAISE EXCEPTION 'Le nombre d identifiants ne correspond pas au nombre total de participants pour ce tournoi Manga.';
     END IF;
 END;
 $$ LANGUAGE plpgsql;
 
+
+-- Cette procédure initialise les affrontements pour un tournoi Personnage.
 
 CREATE OR REPLACE PROCEDURE InitialiserAffrontementsPersonnage(
     id_tournoi INT,
@@ -93,7 +99,7 @@ BEGIN
             );
         END LOOP;
     ELSE
-        RAISE EXCEPTION 'Le nombre didentifiants ne correspond pas au nombre total de participants pour ce tournoi Personnage.';
+        RAISE EXCEPTION 'Le nombre d identifiants ne correspond pas au nombre total de participants pour ce tournoi Personnage.';
     END IF;
 END;
 $$ LANGUAGE plpgsql;

@@ -1,3 +1,5 @@
+-- Cette procédure ajoute un anime aux favoris d'un profil.
+
 CREATE OR REPLACE PROCEDURE AjouterAnimeFavoriPourProfil(
     IN id_profil INT,
     IN id_anime INT
@@ -9,6 +11,8 @@ BEGIN
 END;
 $$;
 
+
+-- Cette procédure ajoute un manga aux favoris d'un profil.
 
 CREATE OR REPLACE PROCEDURE AjouterMangaFavoriPourProfil(
     IN id_profil INT,
@@ -22,6 +26,8 @@ END;
 $$;
 
 
+-- Cette procédure ajoute un personnage aux favoris d'un profil.
+
 CREATE OR REPLACE PROCEDURE AjouterPersonnageFavoriPourProfil(
     IN id_profil INT,
     IN id_personnage INT
@@ -32,6 +38,9 @@ BEGIN
     VALUES (id_profil, id_personnage);
 END;
 $$;
+
+
+-- Cette procédure ajoute un genre aux favoris d'un profil.
 
 CREATE OR REPLACE PROCEDURE AjouterGenreFavoriPourProfil(
     IN id_profil INT,
@@ -44,6 +53,9 @@ BEGIN
 END;
 $$;
 
+
+-- Cette procédure ajoute un thème aux favoris d'un profil.
+
 CREATE OR REPLACE PROCEDURE AjouterThemeFavoriPourProfil(
     IN id_profil INT,
     IN id_theme INT
@@ -54,6 +66,7 @@ BEGIN
     VALUES (id_profil, id_theme);
 END;
 $$;
+
 
 CALL AjouterAnimeFavoriPourProfil(1,42203);
 CALL AjouterAnimeFavoriPourProfil(1,39587);

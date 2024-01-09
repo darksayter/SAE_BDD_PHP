@@ -1,4 +1,6 @@
-CREATE OR REPLACE PROCEDURE deletetournoianime(id int)
+-- Supprime tous les affrontements, classements et le tournoi anime associés à un ID de tournoi anime spécifié.
+
+CREATE OR REPLACE PROCEDURE deletetournoianime(id INT)
 AS $$
 BEGIN
     DELETE FROM AffrontementAnime WHERE id_tournoianime = id;
@@ -7,7 +9,10 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE PROCEDURE deletetournoimanga(id int)
+
+-- Supprime tous les affrontements, classements et le tournoi manga associés à un ID de tournoi manga spécifié.
+
+CREATE OR REPLACE PROCEDURE deletetournoimanga(id INT)
 AS $$
 BEGIN
     DELETE FROM AffrontementManga WHERE id_tournoimanga = id;
@@ -16,7 +21,10 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE OR REPLACE PROCEDURE deletetournoipersonnage(id int)
+
+-- Supprime tous les affrontements, classements et le tournoi personnage associés à un ID de tournoi personnage spécifié.
+
+CREATE OR REPLACE PROCEDURE deletetournoipersonnage(id INT)
 AS $$
 BEGIN
     DELETE FROM AffrontementPersonnage WHERE id_tournoipersonnage = id;
@@ -25,6 +33,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+
+-- Supprime tous les affrontements, classements et tournois anime.
 
 CREATE OR REPLACE PROCEDURE deletealltournoianime()
 AS $$
@@ -35,20 +46,26 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+-- Supprime tous les affrontements, classements et tournois anime.
+
+CREATE OR REPLACE PROCEDURE deletealltournoianime()
+AS $$
+BEGIN
+    DELETE FROM AffrontementAnime;
+    DELETE FROM ClassementAnime;
+    DELETE FROM TournoiAnime;
+END;
+$$ LANGUAGE plpgsql;
+
+
+-- Supprime tous les affrontements, classements et tournois manga.
+
 CREATE OR REPLACE PROCEDURE deletealltournoimanga()
 AS $$
 BEGIN
     DELETE FROM AffrontementManga;
     DELETE FROM ClassementManga;
     DELETE FROM TournoiManga;
-END;
-$$ LANGUAGE plpgsql;
-
-CREATE OR REPLACE PROCEDURE deletealltournoipersonnage()
-AS $$
-BEGIN
-    DELETE FROM AffrontementPersonnage;
-    DELETE FROM ClassementPersonnage;
-    DELETE FROM TournoiPersonnage;
 END;
 $$ LANGUAGE plpgsql;

@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <title>ANIME TOURNAMENT</title>
-    <link rel="stylesheet" href="./assets/CSS/styles.css" type="text/css" />
+    <link rel="stylesheet" href="./assets/CSS/styles_index.css" type="text/css" />
   </head>
 
   <?

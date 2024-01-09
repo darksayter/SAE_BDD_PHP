@@ -1,3 +1,5 @@
+-- Cette fonction vérifie si un nombre est une puissance de deux.
+
 CREATE OR REPLACE FUNCTION EstPuissanceDeDeux(n INT) RETURNS BOOLEAN AS $$
 BEGIN
     IF n <= 0 THEN
@@ -10,6 +12,9 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
+
+
+-- Cette procédure crée un tournoi anime avec un nombre spécifié d'étapes et de participants.
 
 CREATE OR REPLACE PROCEDURE CreerTournoiAnime(
     etapes INT,
@@ -41,6 +46,9 @@ $$ LANGUAGE plpgsql;
 
 
 
+
+-- Cette procédure crée un tournoi manga avec un nombre spécifié d'étapes et de participants.
+
 CREATE OR REPLACE PROCEDURE CreerTournoiManga(
     etapes INT,
     fini BOOLEAN,
@@ -70,6 +78,9 @@ $$ LANGUAGE plpgsql;
 
 
 
+
+-- Cette procédure crée un tournoi personnage avec un nombre spécifié d'étapes et de participants.
+
 CREATE OR REPLACE PROCEDURE CreerTournoiPersonnage(
     etapes INT,
     fini BOOLEAN,
@@ -96,6 +107,7 @@ BEGIN
     END IF;
 END;
 $$ LANGUAGE plpgsql;
+
 
 
 
