@@ -70,7 +70,7 @@
     <nav class="secondaire">
         <h1>ANIME TOURNAMENT</h1>
         <br>
-        <p><h4>Le but de ce projet est de réaliser des statistiques variées sur le thème des séries d’animation ainsi que de leurs personnages et de leurs staffs. Nous avons également ajouté à cela des statistiques de mangas étant donné que de nombreuses séries d’animation sont tirées de ces derniers.
+        <p><h4>Le but de ce projet est de proposer aux utilisateurs qui sont intéresser par les séries de type ANIME ou de lecture MANGA un site internet dynamique en HTML/CSS/PHP avec une base de donnée qui réalise des des tournoi de popularités se basant sur une base de données expliquer si dessous.
         </h4></p>
         <br>
         <h2>Membres : </h2>
@@ -78,6 +78,7 @@
             <li>Duvet Alexandre</li>
             <li>Duchemin Clement</li>
             <br>
+        <h1>BASE DE DONNEES</h1>
         <h2>Tables : </h2>
             <h3>Anime :</h3>
                 <li>id_anime (id, clé primaire, INT)</li>
@@ -235,40 +236,50 @@
                 <li>id_theme (l'id de la table Theme, INT)</li>
                 <br>
         <h2>Fonctions : </h2>
-            <li>Fonction pour obtenir les anime les plus populaires (AnimeLePlusPopulaire)</li>
-            <li>Fonction pour obtenir les mangas les plus populaires (MangaLePlusPopulaire)</li>
-            <li>Fonction pour obtenir les personnages les plus populaires (PersonnageLePlusPopulaire)</li>
-            <li>Fonction pour obtenir les anime avec le plus d'épisodes (AnimeAvecLePlusEpisodes)</li>
-            <li>Fonction pour obtenir les mangas avec le plus de volumes/tomes (MangaAvecLePlusTomes)</li>
-            <li>Fontion pour initialiser un affrontement entre les Anime (InitialiserAffrontementsAnime)</li>
-            <li>Fontion pour initialiser un affrontement entre les Manga (InitialiserAffrontementsManga)</li>
-            <li>Fontion pour initialiser un affrontement entre les Personnages (InitialiserAffrontementsPersonnage)</li>
-            <li>Fontion pour calculer les puissances de 2 (EstPuissanceDeDeux)</li>
-            <li>Fontion pour créer un tournoi entre les Anime (CreerTournoiAnime)</li>
-            <li>Fontion pour créer un tournoi entre les Manga (CreerTournoiManga)</li>
-            <li>Fontion pour créer un tournoi entre les Personnages (CreerTournoiPersonnage)</li>
-            <li>Fontion pour supprime un trounoi entre les Anime (deletetournoianime)</li>
-            <li>Fontion pour supprime un trounoi entre les Manga (deletetournoimanga)</li>
-            <li>Fontion pour supprime un trounoi entre les Personnages (deletetournoipersonnage)</li>
-            <li>Fontion qui affiche le nombre de participant pour un tournoi entre Anime (NombreParticipantsTournoiAnime)</li>
-            <li>Fontion qui affiche le nombre de participant pour un tournoi entre Manga (NombreParticipantsTournoiManga)</li>
-            <li>Fontion qui affiche le nombre de participant pour un tournoi entre Personnages (NombreParticipantsTournoiPersonnage)</li>
-            <li>Fontion pour mettre a jour la table affrontement Anime (MettreAJourAffrontementAnime)</li>
-            <li>Fontion pour mettre a jour la table affrontement Manga (MettreAJourAffrontementManga)</li>
-            <li>Fontion pour mettre a jour la table affrontement Personnages (MettreAJourAffrontementPersonnage)</li>
-            <li>Fonction pour ajouter des Anime dans la table anime en plus de lui attribuer un Theme et ou un ou plusieurs Genres (AjouterAnimeAvecThemesGenres)</li>
-            <li>Fonction pour ajouter des Manga dans la table manga en plus de lui attribuer un Theme et ou un ou plusieurs Genres (AjouterMangaAvecThemesGenres)</li>
-            <li>Fonction pour ajouter des Personnage dans la table personnage (AjouterPersonnage)</li>
-            <li>Fonction pour supprimer des Anime par leurs ID (SupprimerAnimeID)</li>
-            <li>Fonction pour rechercher des Anime par leur nom (RechercherAnimeParNom)</li>
-            <li>Fonction pour rechercher des Manga par leur nom (RechercherMangaParNom)</li>
-            <li>Fonction pour rechercher des Personnages par leur nom (RechercherPersonnageParNom)</li>
-            <li>Fonction pour supprimer un Anime en fonction de son ID (SupprimerAnimeParID)</li>
-            <li>Fonction pour supprimer un Manga en fonction de son ID (SupprimerMangaParID)</li>
-            <li>Fonction pour supprimer un Personnage en fonction de son ID (SupprimerPersonnageParID)</li>
-            <li>Fonction pour ... (a voir)</li>
-            <li>Fonction pour ... (a voir)</li>
-            <li>Fonction pour ... (a voir)</li>
+            <li> Fonction pour obtenir les anime les plus populaires (AnimeLePlusPopulaire)</li>
+            <li> Fonction pour obtenir les mangas les plus populaires (MangaLePlusPopulaire)</li>
+            <li> Fonction pour obtenir les personnages les plus populaires (PersonnageLePlusPopulaire)</li>
+            <li> Fonction pour obtenir les anime avec le plus d'épisodes (AnimeAvecLePlusEpisodes)</li>
+            <li> Fonction pour obtenir les mangas avec le plus de volumes/tomes (MangaAvecLePlusTomes)</li>
+            <li> Fontion pour initialiser un affrontement entre les Anime (InitialiserAffrontementsAnime)</li>
+            <li> Fontion pour initialiser un affrontement entre les Manga (InitialiserAffrontementsManga)</li>
+            <li> Fontion pour initialiser un affrontement entre les Personnages (InitialiserAffrontementsPersonnage)</li>
+            <li> Fontion pour calculer les puissances de 2 (EstPuissanceDeDeux)</li>
+            <li> Fontion pour créer un tournoi entre les Anime (CreerTournoiAnime)</li>
+            <li> Fontion pour créer un tournoi entre les Manga (CreerTournoiManga)</li>
+            <li> Fontion pour créer un tournoi entre les Personnages (CreerTournoiPersonnage)</li>
+            <li> Fontion pour supprime un trounoi entre les Anime (deletetournoianime)</li>
+            <li> Fontion pour supprime un trounoi entre les Manga (deletetournoimanga)</li>
+            <li> Fontion pour supprime un trounoi entre les Personnages (deletetournoipersonnage)</li>
+            <li> Fontion qui affiche le nombre de participant pour un tournoi entre Anime (NombreParticipantsTournoiAnime)</li>
+            <li> Fontion qui affiche le nombre de participant pour un tournoi entre Manga (NombreParticipantsTournoiManga)</li>
+            <li> Fontion qui affiche le nombre de participant pour un tournoi entre Personnages (NombreParticipantsTournoiPersonnage)</li>
+            <li> Fontion pour mettre a jour la table affrontement Anime (MettreAJourAffrontementAnime)</li>
+            <li> Fontion pour mettre a jour la table affrontement Manga (MettreAJourAffrontementManga)</li>
+            <li> Fontion pour mettre a jour la table affrontement Personnages (MettreAJourAffrontementPersonnage)</li>
+            <li> Fonction pour ajouter des Anime dans la table anime en plus de lui attribuer un Theme et ou un ou plusieurs Genres (AjouterAnimeAvecThemesGenres)</li>
+            <li> Fonction pour ajouter des Manga dans la table manga en plus de lui attribuer un Theme et ou un ou plusieurs Genres (AjouterMangaAvecThemesGenres)</li>
+            <li> Fonction pour ajouter des Personnage dans la table personnage (AjouterPersonnage)</li>
+            <li> Fonction pour supprimer des Anime par leurs ID (SupprimerAnimeID)</li>
+            <li> Fonction pour rechercher des Anime par leur nom (RechercherAnimeParNom)</li>
+            <li> Fonction pour rechercher des Manga par leur nom (RechercherMangaParNom)</li>
+            <li> Fonction pour rechercher des Personnages par leur nom (RechercherPersonnageParNom)</li>
+            <li> Fonction pour supprimer un Anime en fonction de son ID (SupprimerAnimeParID)</li>
+            <li> Fonction pour supprimer un Manga en fonction de son ID (SupprimerMangaParID)</li>
+            <li> Fonction pour supprimer un Personnage en fonction de son ID (SupprimerPersonnageParID)</li>
+            <li> Fonction pour ajouter un Anime Favori dans un Profil d'un utilisateur (AjouterAnimeFavoriPourProfil)</li>
+            <li> Fonction pour ajouter un Manga Favori dans un Profil d'un utilisateur (AjouterMangaFavoriPourProfil)</li>
+            <li> Fonction pour ajouter un Personnage Favori dans un Profil d'un utilisateur (AjouterPersonnageFavoriPourProfil)</li>
+            <li> Fonction pour ajouter un Genre Favori dans un Profil d'utilisateur (AjouterGenreFavoriPourProfil)</li>
+            <li> Fonction pour ajouter un Theme Favori pour un Profil d'utilisateur (AjouterThemeFavoriPourProfil)</li>
+            <li> Fonction pour noter les Animes (NoterAnimes)</li>
+            <li> Fonction pour noter les Animes (NoterMangas)</li>
+            <li> Fonction pour créer un Profil pour un utilisateur (CreerProfil)</li>
+            <li> Fonction pour modifier un Profil d'un utilisateur (ModifierProfil)</li>
+            <li> Fonction pour supprimer un Profil d'un utilisateur en fonction de son ID (SupprimerProfilParID)</li>
+            <li> Fonction pour supprimer tout les tournois Anime (deletealltournoianime)</li>
+            <li> Fonction pour supprimer tout les tournois Manga (deletealltournoimanga)</li>
+            <li> Fonction pour supprimer tout les tournois Personnage (deletealltournoipersonnage)</li>
             <br>
           <h2>Triggers : </h2>
             <li> Trigger pour les victoires ou défaites en affrontement (trigger_victoire_defaite)</li>
@@ -282,12 +293,13 @@
             <li> Trigger pour vérifier et créer un affrontement Anime (VerifierEtCreerAffrontementAnime)</li>
             <li> Trigger pour vérifier et créer un affrontement Personnage (VerifierEtCreerAffrontementPersonnage)</li>
             <li> Trigger pour vérifier et créer un affrontement Manga (VerifierEtCreerAffrontementManga)</li>
-            <li> Trigger pour ... (a voir)</li>
-            <li> Trigger pour ... (a voir)</li>
-            <li> Trigger pour ... (a voir)</li>
-            <li> Trigger pour ... (a voir)</li>
-            <li> Trigger pour ... (a voir)</li>
-            <li> Trigger pour ... (a voir)</li>
+            <li> Trigger/Fonction pour vérifier si un affrontement entre Anime et terminé (VerifierAffrontementsAnimeTermines)</li> <!-- Peut subir des modif -->
+            <li> Trigger/Fonction pour vérifier si un affrontement entre Manga et terminé (VerifierAffrontementsMangaTermines)</li>
+            <li> Trigger/Fonction pour vérifier si un affrontement entre Personnage et terminé (VerifierAffrontementsPersonnageTermines)</li>
+            <li> Trigger/Fonction pour mettre a jour l'étape de tournoi Anime (MettreAJourEtapeTournoiAnime)</li>
+            <li> Trigger/Fonction pour mettre a jour l'étape de tournoi Manga (MettreAJourEtapeTournoiManga)</li>
+            <li> Trigger/Fonction pour mettre a jour l'étape de tournoi Personnage (MettreAJourEtapeTournoiPersonnage)</li>
+            <li> Trigger pour mettre a jour l'étape d'un tournoi (MiseAJOurEtapeTournoiTrigger)</li>
         </nav>
 
   </body>
