@@ -280,17 +280,21 @@ BEGIN
             FROM Manga m INNER JOIN mangasfav mf on mf.id_manga = m.id_manga WHERE mf.id_profil = profil_id
         ) sub;
 
-        FOR i IN 1..array_length(authors2, 1) LOOP
-            IF authors2[i] = ANY(authors_manga) THEN
-                note := note + 2;
-            END IF;
-        END LOOP;
+        IF authors2 IS NOT NULL THEN
+            FOR i IN 1..array_length(authors2, 1) LOOP
+                IF authors2[i] = ANY(authors_manga) THEN
+                    note := note + 2;
+                END IF;
+            END LOOP;
+        END IF;
 
-        FOR i IN 1..array_length(serializations2, 1) LOOP
-            IF serializations2[i] = ANY(serializations_manga) THEN
-                note := note + 1;
-            END IF;
-        END LOOP;
+        IF serializations2 IS NOT NULL THEN
+            FOR i IN 1..array_length(serializations2, 1) LOOP
+                IF serializations2[i] = ANY(serializations_manga) THEN
+                    note := note + 1;
+                END IF;
+            END LOOP;
+        END IF;
 
 
         RETURN NEXT;
@@ -300,5 +304,5 @@ $$ LANGUAGE plpgsql;
 
 
 
-SELECT * FROM NoterAnimes(1,3,1,2,2,3) ORDER BY note DESC LIMIT 10;
+SELECT * FROM NoterAnimes(1,3,1,2,4,4) ORDER BY note DESC LIMIT 10;
 SELECT * FROM NoterMangas(1,3,3,2,7,4) ORDER BY note DESC LIMIT 10;
