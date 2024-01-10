@@ -73,7 +73,7 @@ footer
     color : white;
 }
 
-.footer-container:hover
+.footer-container a:hover
 {
     text-decoration: underline;
 }
@@ -351,4 +351,26 @@ nav.secondaire h1{
 .contenu_mention_légales h1{
     text-align : center;
     font-size: 50px;
+}
+
+/* RESPONSIVES */
+
+/*Pour smartphone*/
+@media only screen and (max-width: 768px) {
+    body {
+        font-size: 14px; 
+    }
+    nav.principale {
+        margin: 0;
+    }
+
+    nav.principale ul li {
+        width: 100%;
+    }
+
+    nav.secondaire,
+    .contenu_mention_légales {
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 }
