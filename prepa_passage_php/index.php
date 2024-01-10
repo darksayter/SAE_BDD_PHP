@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <link rel="icon" href="./assets/PICTURE/" type="image/x-icon">
-  <head>
-    <meta charset="utf-8" />
-    <title>ANIME TOURNAMENT</title>
-    <link rel="stylesheet" href="./assets/CSS/styles_index.css" type="text/css" />
-  </head>
-
-  <?
+<?
+  $title ="ANIME TOURNAMENT";
+  $listecss[] = '<link rel="stylesheet" href="./asset/CSS/styles_index.css" type="text/css" />';
   include 'header.php';
-  ?>
+?>
 
   <body>
     <br>

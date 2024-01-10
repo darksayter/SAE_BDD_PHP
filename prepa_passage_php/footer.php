@@ -1,5 +1,5 @@
 </body>
-<footer>
+  <footer>
     <div class="footer-container">
       <a href="mention_legale.php" class="lien"> Mention légale </a>
       <br>
