@@ -2,6 +2,7 @@
   require ("header.php");
 ?>
 
+
   <body>
     <nav class="contenu">
       <h1>CONTENU A VENIR</h1>

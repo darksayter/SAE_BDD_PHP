@@ -22,6 +22,7 @@ if (isset($valider) && !empty(trim($keywords))){
     <title>ANIME TOURNAMENT</title>
     <link rel="stylesheet" href="./assets/CSS/styles.css" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script type="text/javascript" src="assets/JAVASCRIPT/date.js"></script>
   </head>
 
 <!-- HEADER -->
@@ -37,6 +38,9 @@ if (isset($valider) && !empty(trim($keywords))){
       <button class="btn1" type="button" onclick="window.location.href = 'connexion.php';">Login</button>
       <button class="btn2" type="button" onclick="window.location.href = 'connexion.php';">Sign Up</button>
       <!-- une fois que l'utilisateur est connecter ses deux boutons ne seront plus visible, a la place un bouton profil pourra être afficher pour que l'utilisateur accède a son profil ( dans son profil il y aura toutes les informations relatives a l'utilisateur pour qu'il puisse connaîtres les informations que le site possède de son profil ) -->
+      <br>
+      <span id="date_heure"></span>
+      <script type="text/javascript">window.onload = date_heure('date_heure');</script>
     </ul>
   </nav>
 
@@ -78,7 +82,7 @@ if (isset($valider) && !empty(trim($keywords))){
         </ul>
       </li> -->
       <!-- AJOUT D'UNE BARRE DE RECHERCHE -->
-      <input class="input_text" type="text">
+      <input class="input_text" type="text">  
     </ul>
   </nav>
   <?php
