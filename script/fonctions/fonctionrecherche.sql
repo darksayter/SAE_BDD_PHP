@@ -89,6 +89,6 @@ $$ LANGUAGE plpgsql;
 
 
 
-SELECT * FROM RechercherAnimeParNom('test');
-SELECT * FROM RechercherMangaParNom('onepiece');
-SELECT * FROM RechercherPersonnageParNom('emilia');
+SELECT * FROM RechercherAnimeParNom('test') LIMIT 3;
+SELECT * FROM RechercherMangaParNom('onepiece') LIMIT 3;
+SELECT * FROM RechercherPersonnageParNom('emilia') LIMIT 3;
