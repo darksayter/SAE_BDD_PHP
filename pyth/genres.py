@@ -12,13 +12,13 @@ genreanimetxt = open("genreanime.txt", "w")
 themeanimetxt = open("themesanime.txt", "w")
 listegenre = []
 listetheme = []
-with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\pyth\genre.txt', 'r') as w:
+with open (r'C:\Users\Utilisateur\Desktop\SAE_BDD_PHP\pyth\genre.txt', 'r') as w:
     for linee in w:
         temp = linee.split('\n')
         tempo = temp[0].split(',')
         listegenre.append(tempo)
         
-with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\pyth\themes.txt', 'r') as w:
+with open (r'C:\Users\Utilisateur\Desktop\SAE_BDD_PHP\pyth\themes.txt', 'r') as w:
     for lineee in w:
         temp = lineee.split('\n')
         tempo = temp[0].split(',')
@@ -26,7 +26,7 @@ with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\pyth\themes.txt', 'r') as
 
 
 
-with open (r'C:\Users\Utilisateur\Desktop\SAE_capicapi\pyth\anime.csv', 'r') as f:
+with open (r'C:\Users\Utilisateur\Desktop\SAE_BDD_PHP\pyth\anime.csv', 'r') as f:
     test = 0
     for line in f:
         if test < 6:

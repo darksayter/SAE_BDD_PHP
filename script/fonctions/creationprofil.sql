@@ -108,3 +108,24 @@ CALL ModifierProfil(
 -- Supprimer un profil avec un id_profil spécifique
 CALL SupprimerProfilParID(1);
 
+-- Cette fonction vérifie l'existence d'un utilisateur en utilisant le nom d'utilisateur et le mot de passe
+CREATE OR REPLACE FUNCTION VerifierUtilisateur(
+    IN p_username VARCHAR(30),
+    IN p_password VARCHAR(30)
+)
+RETURNS INT
+LANGUAGE plpgsql AS $$
+DECLARE
+    user_id INT;
+BEGIN
+    -- Vérifier si l'utilisateur existe
+    SELECT id_profil INTO user_id
+    FROM Profil
+    WHERE username = p_username AND password = p_password;
+
+    -- Si l'utilisateur existe, retourner son identifiant, sinon retourner NULL
+    RETURN COALESCE(user_id, NULL);
+END;
+$$;
+
+SELECT * FROM VerifierUtilisateur('admin','1234');
