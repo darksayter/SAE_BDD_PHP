@@ -33,16 +33,17 @@ BEGIN
     IF id_anime_winner IS NOT NULL THEN
         id_anime2 := id_anime_winner;
     END IF;
-
+    IF (SELECT(etapes) FROM ClassementAnime WHERE id_anime = id_anime_winner) = NEW.etapes THEN
     -- Création de l'affrontement si un autre participant est trouvé
-    IF id_anime2 IS NOT NULL THEN
-        INSERT INTO AffrontementAnime (
-            id_anime1, id_anime2, id_tournoianime, vote_anime1, vote_anime2, etapes
-        )
-        VALUES (
-            id_anime_winner, id_anime2,
-            NEW.id_tournoianime, 0, 0, NEW.etapes
-        );
+        IF id_anime2 IS NOT NULL AND id_anime2 != NEW.id_anime THEN
+            INSERT INTO AffrontementAnime (
+                id_anime1, id_anime2, id_tournoianime, vote_anime1, vote_anime2, etapes
+            )
+            VALUES (
+                NEW.id_anime, id_anime2,
+                NEW.id_tournoianime, 0, 0, NEW.etapes
+            );
+        END IF;
     END IF;
 
     RETURN NEW;
@@ -76,6 +77,9 @@ BEGIN
     LIMIT 1;
 
     -- Création de l'affrontement si un autre participant est trouvé
+
+    
+
     IF id_personnage2 IS NOT NULL THEN
         INSERT INTO AffrontementPersonnage (
             id_personnage1, id_personnage2, id_tournoipersonnage, vote_personnage1, vote_personnage2, etapes

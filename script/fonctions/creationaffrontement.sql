@@ -119,6 +119,7 @@ $$ LANGUAGE plpgsql;
 
 
 
-CALL InitialiserAffrontementsAnime(1, ARRAY[5114,11061,38524,9253]);
+CALL InitialiserAffrontementsAnime(1, ARRAY[5114,11061,38524,9253,28851,32281,2904,40028]);
+CALL InitialiserAffrontementsAnime(2, ARRAY[5114,11061,38524,9253]);
 CALL InitialiserAffrontementsManga(1,ARRAY[2,13,25,1706]);
 CALL InitialiserAffrontementsPersonnage(1,ARRAY[417, 45627, 71, 40]);

@@ -131,5 +131,5 @@ $$ LANGUAGE plpgsql;
 
 
 CALL CreerTournoiAnime(0, false, 4);
-CALL CreerTournoiPersonnage(0, false,4);
-CALL CreerTournoiManga(0, false,4);
+CALL CreerTournoiPersonnage(1, false,4);
+CALL CreerTournoiManga(1, false,4);

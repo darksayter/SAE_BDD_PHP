@@ -7,6 +7,7 @@ DECLARE
     etape INT := 0;
     temporaire BOOLEAN := false;
     etape_affrontement RECORD;
+    test INT := 0;
 BEGIN
     LOOP
         temporaire := false;
@@ -17,9 +18,14 @@ BEGIN
             FROM AffrontementAnime AS ea
             WHERE ea.id_tournoianime = id_tournoi and ea.etapes = etape
         ) LOOP
+            SELECT COUNT(Af.*) INTO test FROM AffrontementAnime Af WHERE Af.etapes = etape AND id_tournoianime = id_tournoi;
+            --RAISE NOTICE 'test %', test; 
             -- Vérification si tous les votes sont nuls
-            IF (SELECT COUNT(*) FROM AffrontementAnime WHERE vote_anime1 = 0 AND vote_anime2 = 0 and etapes = etape) > 0 THEN
+            IF (SELECT COUNT(*) FROM AffrontementAnime WHERE vote_anime1 = 0 AND vote_anime2 = 0 and etapes = etape AND id_tournoianime = id_tournoi) > 0 THEN
                 temporaire := true;
+            ELSIF (SELECT COUNT(*) FROM AffrontementAnime WHERE etapes = etape AND id_tournoianime = id_tournoi) < 2 THEN 
+                temporaire := true;
+                etape := etape + 1;
             END IF;
 
             -- Retourne l'étape si tous les affrontements sont terminés
@@ -90,8 +96,11 @@ BEGIN
             WHERE ea.id_tournoimanga = id_tournoi AND ea.etapes = etape
         ) LOOP
             -- Vérification si tous les votes sont nuls
-            IF (SELECT COUNT(*) FROM AffrontementManga WHERE vote_manga1 = 0 AND vote_manga2 = 0 AND etapes = etape) > 0 THEN
+            IF (SELECT COUNT(*) FROM AffrontementManga WHERE vote_manga1 = 0 AND vote_manga2 = 0 and etapes = etape AND id_tournoimanga = id_tournoi) > 0 THEN
                 temporaire := true;
+            ELSIF (SELECT COUNT(*) FROM AffrontementManga WHERE etapes = etape AND id_tournoimanga = id_tournoi) < 2 THEN 
+                temporaire := true;
+                etape := etape + 1;
             END IF;
 
             -- Retourne l'étape si tous les affrontements sont terminés
@@ -161,9 +170,13 @@ BEGIN
             WHERE ea.id_tournoipersonnage = id_tournoi AND ea.etapes = etape
         ) LOOP
             -- Vérification si tous les votes sont nuls
-            IF (SELECT COUNT(*) FROM AffrontementPersonnage WHERE vote_personnage1 = 0 AND vote_personnage2 = 0 AND etapes = etape) > 0 THEN
+            IF (SELECT COUNT(*) FROM AffrontementPersonnage WHERE vote_personnage1 = 0 AND vote_personnage2 = 0 and etapes = etape AND id_tournoipersonnage = id_tournoi) > 0 THEN
                 temporaire := true;
+            ELSIF (SELECT COUNT(*) FROM AffrontementPersonnage WHERE etapes = etape AND id_tournoipersonnage = id_tournoi) < 2 THEN 
+                temporaire := true;
+                etape := etape + 1;
             END IF;
+
 
             -- Retourne l'étape si tous les affrontements sont terminés
             IF temporaire THEN
